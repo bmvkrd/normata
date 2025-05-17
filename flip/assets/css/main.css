@@ -335,6 +335,20 @@ input, select, textarea {
 		border-bottom-color: #e6e6e6;
 	}
 
+	.header-caption {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    @media (max-width: 466px) {
+      .header-caption {
+        justify-content: center;
+        margin-top: 24px;
+      }
+    }
+
 /* Row */
 
 	.row {
