@@ -1,162 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flip – Your Study Companion</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #333;
-    }
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fractal by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-    header {
-      background-color: #4FC3F7;
-      padding: 1.5rem 1rem;
-      color: white;
-    }
+		<!-- Header -->
+			<header id="header">
+				<div class="content">
+					<h1 style="display: flex; align-items: center; justify-content: flex-end; gap: 16px;">
+						<img src="images/logo.png" style="height: 1em;" />
+						<a href="#" style="text-decoration: none; color: inherit;">FLIP</a>
+					</h1>
+					<p>Your companion for learning, reviewing,<br />and remembering with cards.</p>
+					<ul class="actions">
+						<li><a href="https://play.google.com/store/apps/details?id=com.normata.flip" class="button primary icon solid fa-download" target="_blank" rel="noopener noreferrer">Download on Google Play</a></li>
+						<li><a href="#features" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
+					</ul>
+				</div>
+				<div class="image"><div class="inner"><img src="images/pic00.png" alt="" width="290" height="605"/></div></div>
+			</header>
 
-    .header-content {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+		<!-- Features -->
+			<section id="features" class="wrapper">
+				<div class="inner alt">
+					<section>
+						<div class="content">
+							<h3>Welcome</h3>
+							<p>Flashcards are a simple yet powerful tool for mastering new information. They promote active recall, which is far more effective than passive review. When combined with spaced repetition, flashcards help the brain store information more reliably by revisiting it at optimal intervals. This scientifically-backed approach improves retention and reduces study time.</p>
+							<p><b>FLIP</b> leverages these techniques by making it easy to create, organize, and review study sets with intelligent scheduling. The app tracks what you know and what you don’t, helping you focus where it matters most.</p>
+						</div>
+					</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/pic01.png" alt="" /></div>
+						<div class="content">
+							<h3>Create or Download Study Sets</h3>
+							<p>Easily create your own study sets tailored to your needs or download from our curated catalog of pre-built sets. Whether you're preparing for exams or learning a language, <b>FLIP</b> helps you get started faster.</p>
+						</div>
+					</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/pic02.png" alt="" /></div>
+						<div class="content">
+							<h3>Card Groups</h3>
+							<p>With Card Groups, you can break down big sets into smaller, themed sections. It’s a smart way to master complex topics step by step.</p>
+						</div>
+					</section>
+					<section class="spotlight">
+						<div class="image"><img src="images/pic03.png" alt="" /></div>
+						<div class="content">
+							<h3>Answer Choices</h3>
+							<p>Simplify study set creation by using predefined answer options. Great for topics with repetitive or categorical answers.</p>
+						</div>
+					</section>
+				</div>
+			</section>
 
-    header img {
-      width: 96px;
-      height: 96px;
-    }
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; 2025 Normata All rights reserved.</p>
+			</footer>
 
-    .header-text h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-    .header-text p {
-      font-size: 1rem;
-      margin: 0.25rem 0 0;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section h2 {
-      color: #4FC3F7;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      line-height: 1.6;
-    }
-
-    .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .screenshots img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .download {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .download a {
-      display: inline-block;
-      background-color: #4FC3F7;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .download a:hover {
-      background-color: #039be5;
-    }
-
-    footer {
-      background-color: #f4f4f4;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-content">
-      <img src="images/logo_social.png" />
-      <div class="header-text">
-        <h1>FLIP</h1>
-        <p>Your companion for learning, reviewing, and remembering with cards.</p>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="section">
-      <h2>Master anything with smart, customizable card-based learning.</h2>
-      <p>
-        Flip is your personal study companion designed to help you learn efficiently and stay on track — whether you're preparing for exams, brushing up on vocabulary, or exploring a new subject.
-      </p>
-      <p>
-        With Flip, you can create or download Study Sets, each containing cards with content on the front and back. Think of each card as a bite-sized piece of knowledge you can review, memorize, and master at your own pace.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Why You'll Love Flip</h2>
-      <ul>
-        <li><strong>Create or Download Study Sets:</strong> Build your own or explore our growing catalog of ready-made sets.</li>
-        <li><strong>Card Groups:</strong> Split large sets into focused batches to avoid overload.</li>
-        <li><strong>Answer Choices:</strong> Tired of typing the same answers over and over? With Answer Choices, you can create a shared list of answers that apply across all your cards. This makes quiz rounds faster to set up, easier to answer, and perfect for subjects with fixed answer sets.</li>
-        <li><strong>Track Your Progress:</strong> Monitor mastery across sets, groups, and individual cards.</li>
-        <li><strong>Adaptive Learning Mode:</strong> Engage in multiple choice and input rounds to strengthen memory.</li>
-        <li><strong>Bulk Card Importing:</strong> Import large sets easily to save time.</li>
-        <li><strong>Deep Customization:</strong> Tailor your experience from card groups to quiz settings.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>App Screenshots</h2>
-      <div class="screenshots">
-        <img src="images/1.png">
-        <img src="images/2.png">
-        <img src="images/3.png">
-        <img src="images/4.png">
-      </div>
-    </section>
-
-    <section class="download">
-      <a href="https://play.google.com/store/apps/details?id=com.normata.flip">Download on Google Play</a>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Normata All rights reserved.
-  </footer>
-</body>
+	</body>
 </html>
