@@ -1,196 +1,225 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Flip - Your companion for learning, reviewing, and remembering with cards</title>
-		<meta charset="utf-8" />
-		<meta name="description" content="Flip is a flashcard app by Normata that uses spaced repetition system (SRS) to help you memorize anything faster and retain knowledge longer.">
-		<meta name="keywords" content="flip, flashcards, flashcard app, spaced repetition, SRS, normata, study set, learning app, memory training">
-		<meta name="robots" content="index, follow">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta property="og:title" content="Flip – Your companion for learning, reviewing, and remembering with cards" />
-		<meta property="og:description" content="Flip is a flashcard app by Normata that uses spaced repetition system (SRS) to help you memorize anything faster and retain knowledge longer." />
-		<meta property="og:image" content="https://www.normata.com/flip/images/logo.png" />
-		<meta property="og:url" content="https://www.normata.com/flip" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flip - Your companion for learning, reviewing, and remembering with cards</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Flip is a flashcard app by Normata that uses spaced repetition system (SRS) to help you memorize anything faster and retain knowledge longer." />
+	<meta name="keywords" content="flip, flashcards, flashcard app, spaced repetition, SRS, normata, study set, learning app, memory training" />
+	<meta name="author" content="Normata" />
+	<meta name="robots" content="index, follow">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="content">
-					<h1 class="header-caption">
-						<img src="images/logo.png" style="height: 1em;" />
-						<a href="#" style="text-decoration: none; color: inherit;">FLIP</a>
-					</h1>
-					<p>Your companion for learning, reviewing,<br />and remembering with cards.</p>
-					<ul class="actions">
-						<li><a href="https://play.google.com/store/apps/details?id=com.normata.flip" class="button primary icon solid fa-download" target="_blank" rel="noopener noreferrer">Download on Google Play</a></li>
-						<li><a href="#features" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
-					</ul>
-				</div>
-				<div class="image"><div class="inner"><img src="images/pic00.png" alt="Flip flashcard app logo" width="221" height="461"/></div></div>
-			</header>
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="Flip – Your companion for learning, reviewing, and remembering with cards"/>
+	<meta property="og:image" content="https://www.normata.com/flip/images/logo.png"/>
+	<meta property="og:url" content="https://www.normata.com/flip"/>
+	<meta property="og:site_name" content="Normata Flip"/>
+	<meta property="og:description" content="Flip is a flashcard app by Normata that uses spaced repetition system (SRS) to help you memorize anything faster and retain knowledge longer."/>
+	<meta name="twitter:title" content="Flip – Your companion for learning, reviewing, and remembering with cards" />
+	<meta name="twitter:image" content="https://www.normata.com/flip/images/logo.png" />
+	<meta name="twitter:url" content="https://www.normata.com/flip" />
+	<meta name="twitter:card" content="" />
 
-		<!-- Features -->
-			<section id="features" class="wrapper">
-				<div class="inner alt">
-					<section>
-						<div class="content">
-							<h3>Welcome</h3>
-							<p>Flashcards are a simple yet powerful tool for mastering new information. They promote active recall, which is far more effective than passive review. When combined with spaced repetition, flashcards help the brain store information more reliably by revisiting it at optimal intervals. This scientifically-backed approach improves retention and reduces study time.</p>
-							<p><b>FLIP</b> leverages these techniques by making it easy to create, organize, and review study sets with intelligent scheduling. The app tracks what you know and what you don’t, helping you focus where it matters most.</p>
-						</div>
-					</section>
-					<section class="spotlight">
-						<div class="image"><img src="images/pic01.png" alt="Create or Download Study Sets" /></div>
-						<div class="content">
-							<h3>Create or Download Study Sets</h3>
-							<p>Easily create your own study sets tailored to your needs or download from our curated catalog of pre-built sets. Whether you're preparing for exams or learning a language, <b>FLIP</b> helps you get started faster.</p>
-						</div>
-					</section>
-					<section class="spotlight">
-						<div class="image"><img src="images/pic02.png" alt="Card Groups" /></div>
-						<div class="content">
-							<h3>Card Groups</h3>
-							<p>With Card Groups, you can break down big sets into smaller, themed sections. It’s a smart way to master complex topics step by step.</p>
-						</div>
-					</section>
-					<section class="spotlight">
-						<div class="image"><img src="images/pic03.png" alt="Answer Choices" /></div>
-						<div class="content">
-							<h3>Answer Choices</h3>
-							<p>Simplify study set creation by using predefined answer options. Great for topics with repetitive or categorical answers.</p>
-						</div>
-					</section>
-				</div>
-			</section>
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-		<!-- Feedback -->
-			<div class="inner alt" style="width:100%;height:500px;" data-fillout-id="kKGmnG7gAdus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+
+<div id="page-wrap">
+
+
+	<!-- ==========================================================================================================
+													   HERO
+		 ========================================================================================================== -->
+
+	<div id="fh5co-hero-wrapper">
+		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
+			<div class="navbar-brand">
+				<img src="images/logo.png" style="height: 1em;" />
+				<a href="#" style="text-decoration: none; color: inherit; font-weight: bold;">FLIP</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" onclick="$('#fh5co-features').goTo();return false;">Features</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;">Reviews</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"  onclick="$('#fh5co-download').goTo();return false;">Download</a>
+					</li>
 				</ul>
-				<a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral" alt="Fazier badge" /></a>
-				<a href="https://indie.deals?ref=https%3A%2F%2Fnormata.com%2Fflip%2F" target="_blank" rel="noopener noreferrer">
-					<style>
-						.indie-deals-badge {
-                          position: relative;
-                          overflow: hidden;
-                          display: inline-block;
-                        }
-                        .indie-deals-badge::after {
-                          content: '';
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          background: linear-gradient(45deg,
-                            rgba(255,255,255,0) 0%,
-                            rgba(255,255,255,0) 40%,
-                            rgba(255,255,255,0.9) 50%,
-                            rgba(255,255,255,0) 60%,
-                            rgba(255,255,255,0) 100%);
-                          transform: translateX(-100%) rotate(45deg);
-                          pointer-events: none;
-                          transition: transform 0.3s ease-out;
-                        }
-                        .indie-deals-badge:hover::after {
-                          animation: indie-deals-shine 1s ease-out;
-                        }
-                        @keyframes indie-deals-shine {
-                          0% { transform: translateX(-100%) rotate(45deg); }
-                          50% { transform: translateX(0%) rotate(45deg); }
-                          100% { transform: translateX(100%) rotate(45deg); }
-                        }
-					</style>
-					<svg
-							width="120"
-							height="40"
-							viewBox="0 0 120 40"
-							xmlns="http://www.w3.org/2000/svg"
-							class="indie-deals-badge"
-					>
-						<defs>
-							<linearGradient id="badgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" stop-color="#ffffff" />
-								<stop offset="100%" stop-color="#e6f0fc" />
-							</linearGradient>
-						</defs>
+			</div>
+		</nav>
 
-						<rect
-								width="120"
-								height="40"
-								rx="10"
-								fill="url(#badgeGradient)"
-						/>
+		<div class="container fh5co-hero-inner">
+			<h1 class="animated fadeIn wow" data-wow-delay="0.4s">Your companion for learning, reviewing, and remembering with cards.</h1>
+			<p class="animated fadeIn wow" data-wow-delay="0.67s">Simple. Smart. Memorable. </p>
+			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" onclick="$('#fh5co-download').goTo();return false;">Download</button>
+			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="$('#fh5co-features').goTo();return false;">Features</button>
+			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="images/phone-screenshot-2.png" alt="Smartphone">
+		</div>
 
-						<rect
-								x="0.75"
-								y="0.75"
-								width="118.5"
-								height="38.5"
-								rx="9.25"
-								fill="none"
-								stroke="#0070f3"
-								stroke-width="1.5"
-								stroke-opacity="0.3"
-						/>
 
-						<image
-								href="https://indie.deals/logo_badge.png"
-								x="9.6"
-								y="8"
-								width="24"
-								height="24"
-								preserveAspectRatio="xMidYMid meet"
-								filter="drop-shadow(1px 1px 2px rgba(0,0,0,0.15))"
-						/>
+	</div> <!-- first section wrapper -->
 
-						<text
-								x="80.4"
-								y="15.2"
-								text-anchor="middle"
-								dominant-baseline="middle"
-								font-family="system-ui, -apple-system, sans-serif"
-								font-size="7.199999999999999"
-								font-weight="normal"
-								fill="#4b5563"
-								letter-spacing="0.01em"
-						>
-							Find us on
-						</text>
-						<text
-								x="80.4"
-								y="26"
-								text-anchor="middle"
-								dominant-baseline="middle"
-								font-family="system-ui, -apple-system, sans-serif"
-								font-size="8.8"
-								font-weight="bold"
-								fill="#0070f3"
-								letter-spacing="0.01em"
-						>
-							Indie.Deals
-						</text>
-					</svg>
-				</a>
-				<p class="copyright">&copy; 2025 Normata All rights reserved.</p>
-			</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- ==========================================================================================================
+													 ADVANTAGES
+		 ========================================================================================================== -->
 
-	</body>
+	<div class="fh5co-advantages-outer">
+		<div class="container">
+			<h1 class="second-title"><span class="span-perfect">Why</span> <span class="span-features">Download</span></h1>
+
+			<div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
+				<div class="col-sm-4">
+					<img class="grid-image" src="images/icon-1.png" alt="Icon-1">
+					<h1 class="grid-title">Usability</h1>
+					<p class="grid-desc">A clean, distraction-free interface that helps you focus on learning — not figuring out how things work</p>
+				</div>
+				<div class="col-sm-4">
+					<img class="grid-image" src="images/icon-2.png" alt="Icon-2">
+					<h1 class="grid-title">Flexibility</h1>
+					<p class="grid-desc">Flexible enough for any subject, yet simple enough for everyday use.</p>
+				</div>
+				<div class="col-sm-4">
+					<img class="grid-image" src="images/icon-3.png" alt="Icon-3">
+					<h1 class="grid-title">Support</h1>
+					<p class="grid-desc">We’re actively building Flip every day, so it only gets better the more you use it.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ==========================================================================================================
+													  SLIDER
+		 ========================================================================================================== -->
+
+	<div class="fh5co-slider-outer wow fadeIn" data-wow-delay="0.36s">
+		<h1>VISUAL TOUR</h1>
+		<small>A quick look at Flip’s clean, intuitive design.</small>
+		<div class="container fh5co-slider-inner">
+			<div class="owl-carousel owl-theme">
+				<div class="item"><img src="images/phone-screenshot-1.png" alt="Home screen"></div>
+				<div class="item"><img src="images/phone-screenshot-2.png" alt="Study Set view"></div>
+				<div class="item"><img src="images/phone-screenshot-3.png" alt="Quiz learning"></div>
+				<div class="item"><img src="images/phone-screenshot-4.png" alt="Online catalog"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ==========================================================================================================
+													  FEATURES
+		 ========================================================================================================== -->
+
+	<div class="curved-bg-div wow animated fadeIn" data-wow-delay="0.15s"></div>
+	<div id="fh5co-features" class="fh5co-features-outer">
+		<div class="container">
+			<div class="row fh5co-features-grid-columns">
+				<div class="col-sm-6 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
+					<div class="col-sm-image-container">
+						<img class="img-float-left" src="images/phone-screenshot-1.png" alt="Homepage">
+					</div>
+				</div>
+				<div class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+					<h1>Create or Download Study Sets</h1>
+					<p>Easily create your own study sets tailored to your needs or download from our curated catalog of pre-built sets. Whether you're preparing for exams or learning a language, FLIP helps you get started faster.</p>
+				</div>
+				<div class="col-sm-6 in-order-3 sm-6-content wow animated fadeInLeft" data-wow-delay="0.22s">
+					<h1>Card Groups</h1>
+					<p>Break down big study sets into manageable groups and learn step by step.</p>
+				</div>
+				<div class="col-sm-6 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
+					<img class="img-float-right" src="images/phone-screenshot-2.png" alt="Deck view">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ==========================================================================================================
+													  REVIEWS
+		 ========================================================================================================== -->
+
+	<div id="fh5co-reviews" class="fh5co-reviews-outer">
+		<h1>What people are saying</h1>
+		<div class="container fh5co-reviews-inner">
+			<div class="row justify-content-center">
+				<div class="col-sm-5 wow fadeIn animated" data-wow-delay="0.25s">
+					<img class="float-left" src="images/quotes-1.jpg" alt="Quote 1">
+					<p class="testimonial-desc">I opened Flip to study German and now my dog understands commands in three languages. This app works TOO well.</p>
+					<small class="testimonial-author">– Linda, confused but proud</small>
+					<img class="float-right" src="images/quotes-2.jpg" alt="Quote 2">
+				</div>
+				<div class="col-sm-5 testimonial-2 wow fadeIn animated" data-wow-delay="0.67s">
+					<img class="float-left" src="images/quotes-1.jpg" alt="Quote 1">
+					<p class="testimonial-desc">I used Flip for one day and accidentally aced my neighbor’s medical school exam.</p>
+					<small class="testimonial-author">– Carlos, not even in med school</small>
+					<img class="float-right" src="images/quotes-2.jpg" alt="Quote 2">
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+
+	<!-- ==========================================================================================================
+                                                 BOTTOM
+    ========================================================================================================== -->
+
+	<div id="fh5co-download" class="fh5co-bottom-outer">
+		<div class="overlay">
+			<div class="container fh5co-bottom-inner">
+				<div class="row">
+					<div class="col-sm-6">
+						<h1>How to download the app?</h1>
+						<p>The app is free to use and can be downloaded from Google Play using the link below.</p>
+						<a class="wow fadeIn animated" data-wow-delay="0.67s" href="https://play.google.com/store/apps/details?id=com.normata.flip"><img class="google-play-btn" src="images/google-play-icon.png" alt="Google Play Icon"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+	<footer class="footer-outer">
+		<div class="container footer-inner">
+			<span class="border-bottom-footer"></span>
+			<p class="copyright">&copy; 2025 Normata All rights reserved.</p>
+		</div>
+	</footer>
+</div> <!-- main page wrapper -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
 </html>
