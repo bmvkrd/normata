@@ -1,73 +1,1202 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Normata: Learn Different. Learn Better.</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Normata Signals — quiet intelligence for engineering managers</title>
+  <link rel="icon" href="assets/favicon.svg"/>
+  <style>
+/* ============================================================
+   Normata Signals — Colors, Type & Foundations
+   Single brand typeface: Anonymice Pro Nerd Font.
+   Palette: "Chasers in Black" — dark canvas, amber signal,
+   red for the rare actually-urgent moment.
+   ============================================================ */
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#projects">Our projects</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+/* ---------- Propo (proportional) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+/* ---------- Default (mono with icons) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Learn Different. Learn Better.</h1>
-							<p>Normata is building the future of online education. We believe learning should feel like play, not pressure.<br/>By combining smart technology and cognitive science, we design tools that help people learn faster and remember longer.</p>
-							<ul class="actions">
-								<li><a href="#projects" class="button scrolly">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
+/* ---------- Mono (strict mono) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 
-				<!-- Projects -->
-					<section id="projects" class="wrapper style2 spotlights">
-						<section>
-							<img src="images/flip.png" alt="" data-position="center center" />
-							<div class="content">
-								<div class="inner">
-									<h2>Flip</h2>
-									<p>Flashcards, but actually useful. Flip is a mobile app built to help anyone — from curious kids to busy students — remember more, faster.<br/>You can study big sets in smaller groups, stay on track with progress stats, and enjoy an interface that’s clutter-free and easy to use.<br/>No ads, no distractions — just pure learning.</p>
-									<ul class="actions">
-										<li><a href="/flip" class="button">Explore</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
+:root {
+  /* -------- Brand palette · Chasers in Black -------- */
+  --ink:           #1B1A1A;   /* primary canvas */
+  --ink-2:         #2A2828;   /* lifted surface, card on dark */
+  --slate:         #444141;   /* mid surface, body on cream */
+  --mist-slate:    #888383;   /* tertiary text, captions */
+  --amber:         #F09F38;   /* primary signal / CTA / brand accent */
+  --amber-deep:    #C77E1F;   /* amber pressed / focused */
+  --amber-dim:     #A87938;   /* secondary accent / quiet ribbons */
+  --red:           #BE2121;   /* the rare actually-urgent moment, sparingly */
+  --red-deep:      #921818;
+  --warm:          #2A2418;   /* the "warm card on dark" — replaces cream */
+  --paper:         #2A2828;   /* card surface on dark */
+  --paper-light:   #f3eee3;   /* light cream surface (synthesized for the rare light moment) */
+  --fg-warm:       #EFE9DD;   /* primary text on ink */
+  --white:         #ffffff;
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; 2025 Normata All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
+  /* -------- Back-compat aliases (so older selectors keep working) -------- */
+  --sage:        var(--amber);
+  --sage-deep:   var(--amber-deep);
+  --mint:        var(--amber-dim);
+  --cream:       var(--warm);
+  --mist:        var(--ink);
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  /* -------- Semantic surfaces · dark default -------- */
+  --bg:            var(--ink);            /* page */
+  --bg-paper:      var(--ink-2);          /* panel */
+  --bg-card:       var(--ink-2);          /* card */
+  --bg-highlight:  var(--warm);           /* the warm editorial highlight */
+  --bg-sunken:     #141313;               /* below page */
+  --bg-inverse:    var(--paper-light);    /* rare light surface (e.g. print) */
 
-	</body>
+  /* -------- Foreground · on dark -------- */
+  --fg-1:          var(--fg-warm);                       /* primary text */
+  --fg-2:          rgba(239, 233, 221, 0.68);            /* secondary */
+  --fg-3:          rgba(239, 233, 221, 0.44);            /* tertiary */
+  --fg-mute:       rgba(239, 233, 221, 0.26);
+  --fg-on-ink:     var(--fg-warm);
+  --fg-on-ink-2:   rgba(239, 233, 221, 0.68);
+  --fg-on-ink-3:   rgba(239, 233, 221, 0.44);
+  --fg-on-amber:   var(--ink);                           /* dark text on amber CTAs */
+  --fg-on-red:     var(--fg-warm);
+  --fg-on-cream:   var(--fg-warm);                       /* warm card → warm text */
+  --fg-on-light:   var(--ink);
+
+  /* -------- Borders & dividers -------- */
+  --border-1:      rgba(239, 233, 221, 0.08);
+  --border-2:      rgba(239, 233, 221, 0.16);
+  --border-on-ink: rgba(239, 233, 221, 0.08);
+  --hairline-amber: rgba(240, 159, 56, 0.42);
+  --hairline-sage: var(--hairline-amber); /* alias */
+
+  /* -------- Accents -------- */
+  --accent:           var(--amber);
+  --accent-hover:     #F7B45C;
+  --accent-pressed:   var(--amber-deep);
+  --accent-soft:      rgba(240, 159, 56, 0.14);
+  --info:             var(--amber-dim);
+  --info-soft:        rgba(168, 121, 56, 0.18);
+  --danger:           var(--red);
+  --danger-soft:      rgba(190, 33, 33, 0.18);
+
+  /* -------- Shadows -------- */
+  --shadow-subtle:    0 1px 2px rgba(0,0,0,0.32);
+  --shadow-lifted:    0 12px 28px -10px rgba(0,0,0,0.55),
+                      0 2px 4px -2px rgba(0,0,0,0.35);
+  --shadow-focus:     0 0 0 2px var(--bg), 0 0 0 4px var(--amber);
+
+  /* -------- Radii -------- */
+  --radius-xs:        4px;
+  --radius-md:        10px;
+  --radius-pill:      999px;
+
+  /* -------- Spacing (4px base) -------- */
+  --s-1:    4px;   --s-2:    8px;   --s-3:    12px;  --s-4:    16px;
+  --s-6:    24px;  --s-8:    32px;  --s-12:   48px;  --s-16:   64px;
+  --s-24:   96px;  --s-32:  128px;
+
+  /* -------- Type families -------- */
+  --font-prop:    'AnonymiceProNerdPropo', 'AnonymousPro', ui-monospace, monospace;
+  --font-mono:    'AnonymiceProNerd', 'AnonymousPro', ui-monospace, monospace;
+  --font-strict:  'AnonymiceProNerdMono', 'AnonymousPro', ui-monospace, monospace;
+  --font-display: var(--font-prop);
+  --font-sans:    var(--font-prop);
+  --font-serif:   var(--font-prop);
+
+  /* -------- Type sizes -------- */
+  --t-display:     64px;
+  --t-h1:          44px;
+  --t-h2:          30px;
+  --t-h3:          22px;
+  --t-h4:          17px;
+  --t-body:        15px;
+  --t-body-sm:     13px;
+  --t-caption:     12px;
+  --t-overline:    11px;
+
+  /* -------- Motion -------- */
+  --ease:        cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:    150ms;
+  --dur-base:    250ms;
+  --dur-slow:    400ms;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-prop);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--amber); color: var(--ink); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-prop);
+  color: var(--fg-1);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: var(--t-h1); line-height: 1.08; letter-spacing: -0.02em; }
+h2 { font-size: var(--t-h2); line-height: 1.18; letter-spacing: -0.015em; }
+h3 { font-size: var(--t-h3); line-height: 1.3;  font-weight: 700; }
+h4 { font-size: var(--t-h4); line-height: 1.35; font-weight: 700; }
+
+p  { margin: 0; font-size: var(--t-body); line-height: 1.55; color: var(--fg-1); }
+
+.italic-voice, .voice {
+  font-family: var(--font-prop);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--amber);
+}
+
+.lede {
+  font-family: var(--font-prop);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--fg-2);
+  font-weight: 400;
+}
+
+small, .caption {
+  font-size: var(--t-caption);
+  color: var(--fg-3);
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+
+.overline {
+  font-family: var(--font-mono);
+  font-size: var(--t-overline);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fg-3);
+}
+
+code, kbd, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+.tabular {
+  font-family: var(--font-strict);
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--fg-1);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+a:hover { border-bottom-color: var(--amber); }
+
+button { font-family: inherit; }
+
+.surface-ink   { background: var(--ink);   color: var(--fg-on-ink); }
+.surface-paper { background: var(--paper); color: var(--fg-1); }
+.surface-mist  { background: var(--ink);   color: var(--fg-1); }
+.surface-cream { background: var(--warm);  color: var(--fg-on-cream); }
+
+.hairline {
+  height: 1px;
+  background: var(--hairline-amber);
+  border: 0;
+  margin: var(--s-6) 0;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  padding: var(--s-6);
+}
+
+</style>
+  <style>
+    /* ========= Page base ========= */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--ink); color: var(--fg-warm); font-family: var(--font-prop); font-size: 16px; line-height: 1.55; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+    .container.tight { max-width: 920px; }
+    .container.narrow { max-width: 720px; }
+
+    /* ========= Nav ========= */
+    .mk-nav { padding: 22px 0; border-bottom: 1px solid var(--border-1); position: sticky; top: 0; background: rgba(27,26,26,0.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 50; }
+    .mk-nav .row { display: flex; align-items: center; gap: 24px; }
+    .mk-nav .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; border-bottom: 0; }
+    .mk-nav .brand .word { font-family: var(--font-prop); font-style: italic; font-weight: 700; font-size: 22px; color: var(--fg-warm); letter-spacing: -0.01em; }
+    .mk-nav .brand .sub { font-family: var(--font-prop); font-weight: 400; font-size: 11px; letter-spacing: 0.22em; color: var(--amber); margin-left: 4px; padding-top: 4px; }
+    .mk-nav .links { margin-left: auto; display: flex; gap: 24px; align-items: center; }
+    .mk-nav .links a { font-size: 13.5px; color: rgba(239,233,221,0.66); border: 0; cursor: pointer; text-decoration: none; }
+    .mk-nav .links a:hover { color: var(--fg-warm); }
+    .mk-nav .links .cta { background: var(--amber); color: var(--ink); padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; transition: background var(--dur-fast) var(--ease); }
+    .mk-nav .links .cta:hover { background: var(--accent-hover); color: var(--ink); }
+
+    /* ========= Hero ========= */
+    .hero { padding: 96px 0 80px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: center; }
+    .hero .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+    .hero .eyebrow .ridge { width: 28px; height: 1px; background: var(--hairline-amber); }
+    .hero h1 { font-family: var(--font-prop); font-weight: 700; font-size: 64px; line-height: 1.02; letter-spacing: -0.028em; color: var(--fg-warm); margin: 0 0 24px; }
+    .hero h1 .it { font-style: italic; font-weight: 400; color: var(--amber); }
+    .hero .lede { font-family: var(--font-prop); font-style: italic; font-size: 20px; color: rgba(239,233,221,0.74); margin: 0 0 36px; max-width: 520px; line-height: 1.5; text-wrap: pretty; }
+    .hero .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist-slate); }
+    .hero .meta .item { display: inline-flex; align-items: center; gap: 8px; }
+    .hero .meta .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--amber); display: inline-block; }
+
+    /* ========= Inline email form ========= */
+    .form-card { display: flex; flex-direction: column; gap: 10px; max-width: 520px; }
+    .form-row { display: flex; gap: 8px; background: var(--paper); border: 1px solid var(--border-1); border-radius: 999px; padding: 6px 6px 6px 18px; transition: border-color var(--dur-fast) var(--ease); }
+    .form-row:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .form-row input { flex: 1; background: transparent; border: 0; outline: 0; color: var(--fg-warm); font-family: var(--font-prop); font-size: 15px; padding: 10px 4px; min-width: 0; }
+    .form-row input::placeholder { color: var(--fg-3); }
+    .form-row button { background: var(--amber); color: var(--ink); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 700; border: 0; cursor: pointer; font-family: var(--font-prop); white-space: nowrap; transition: background var(--dur-fast) var(--ease); display: inline-flex; align-items: center; gap: 6px; }
+    .form-row button:hover { background: var(--accent-hover); }
+    .form-row button:active { background: var(--accent-pressed); transform: scale(0.99); }
+    .form-row button:disabled { background: var(--slate); color: var(--fg-3); cursor: not-allowed; }
+    .form-meta { display: flex; gap: 16px; padding-left: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3); }
+    .form-meta label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: var(--fg-2); }
+    .form-meta input[type="radio"] { appearance: none; width: 12px; height: 12px; border: 1px solid var(--border-2); border-radius: 999px; margin: 0; position: relative; cursor: pointer; }
+    .form-meta input[type="radio"]:checked { border-color: var(--amber); }
+    .form-meta input[type="radio"]:checked::after { content: ""; position: absolute; inset: 2px; background: var(--amber); border-radius: 999px; }
+    .form-error { font-family: var(--font-mono); font-size: 12px; color: var(--red); padding-left: 18px; }
+    .form-success { background: var(--accent-soft); border: 1px solid var(--hairline-amber); border-radius: 14px; padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+    .form-success .ic { font-family: var(--font-mono); color: var(--amber); font-size: 22px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .form-success .cap { font-family: var(--font-prop); font-style: italic; font-size: 15px; color: var(--amber); margin-bottom: 4px; }
+    .form-success .body { font-size: 14px; color: var(--fg-1); line-height: 1.55; }
+    .form-success .body .m { font-family: var(--font-mono); background: rgba(239,233,221,0.06); padding: 1px 6px; border-radius: 3px; color: var(--fg-warm); font-size: 12.5px; }
+
+    /* ========= Hero preview (briefing mock) ========= */
+    .hero-preview { background: var(--paper); border-radius: 14px; padding: 26px 28px 22px; box-shadow: var(--shadow-lifted); border: 1px solid var(--border-1); display: flex; flex-direction: column; gap: 14px; position: relative; }
+    .hero-preview::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; background: var(--amber); border-radius: 14px 14px 0 0; opacity: 0.0; }
+    .hero-preview .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .hero-preview .label .live { background: rgba(240,159,56,0.14); color: var(--amber); padding: 3px 10px; border-radius: 999px; letter-spacing: 0.08em; text-transform: none; display: inline-flex; align-items: center; gap: 6px; }
+    .hero-preview .label .live .pulse { width: 6px; height: 6px; border-radius: 999px; background: var(--amber); animation: pulse 2s var(--ease) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    .hero-preview .voice { font-family: var(--font-prop); font-style: italic; font-size: 19px; color: var(--amber); }
+    .hero-preview h3 { font-family: var(--font-prop); font-weight: 700; font-size: 23px; color: var(--fg-warm); margin: 0; letter-spacing: -0.015em; line-height: 1.2; text-wrap: pretty; }
+    .hero-preview hr { border: 0; height: 1px; background: var(--hairline-amber); margin: 2px 0; }
+    .hero-preview .item { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: 13.5px; line-height: 1.55; color: rgba(239,233,221,0.8); padding: 8px 0; border-bottom: 1px solid var(--border-1); }
+    .hero-preview .item:last-of-type { border-bottom: 0; padding-bottom: 4px; }
+    .hero-preview .item .cap { font-family: var(--font-prop); font-style: italic; font-size: 12.5px; color: var(--amber); margin-bottom: 2px; opacity: 0.85; }
+    .hero-preview .item .b { color: var(--fg-warm); font-weight: 700; }
+    .hero-preview .item .m { font-family: var(--font-mono); font-size: 12px; background: rgba(239,233,221,0.06); padding: 1px 5px; border-radius: 3px; color: var(--fg-warm); }
+    .hero-preview .actions { display: flex; gap: 8px; padding-top: 8px; flex-wrap: wrap; }
+    .hero-preview .actions .chip { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; background: transparent; border: 1px solid var(--border-2); color: var(--fg-2); padding: 6px 10px; border-radius: 999px; cursor: pointer; transition: all var(--dur-fast) var(--ease); }
+    .hero-preview .actions .chip:hover { border-color: var(--amber); color: var(--amber); }
+    .hero-preview .actions .chip.tick { color: var(--amber); border-color: rgba(240,159,56,0.4); }
+    .hero-preview .footnote { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3); padding-top: 6px; border-top: 1px dashed var(--border-1); display: flex; justify-content: space-between; }
+
+    /* ========= Section pattern ========= */
+    .section { padding: 96px 0; border-top: 1px solid var(--border-1); }
+    .section.warm { background: var(--warm); border-top: 1px solid rgba(240,159,56,0.18); }
+    .section.ink-deep { background: var(--bg-sunken); }
+    .section .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .section .eyebrow .ridge { width: 28px; height: 1px; background: var(--hairline-amber); }
+    .section h2 { font-family: var(--font-prop); font-weight: 700; font-size: 44px; letter-spacing: -0.022em; line-height: 1.08; margin: 0 0 18px; color: var(--fg-warm); text-wrap: pretty; max-width: 18ch; }
+    .section h2 .it { font-style: italic; font-weight: 400; color: var(--amber); }
+    .section .lede { font-family: var(--font-prop); font-style: italic; font-size: 19px; color: rgba(239,233,221,0.72); margin: 0 0 48px; max-width: 620px; line-height: 1.5; text-wrap: pretty; }
+
+    /* ========= Audience strip ========= */
+    .audience { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--border-1); border-radius: 14px; overflow: hidden; }
+    .audience .col { padding: 24px 28px; border-right: 1px solid var(--border-1); }
+    .audience .col:last-child { border-right: 0; }
+    .audience .col .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+    .audience .col .name { font-family: var(--font-prop); font-size: 17px; font-weight: 700; color: var(--fg-warm); margin-bottom: 2px; }
+    .audience .col .scope { font-family: var(--font-prop); font-style: italic; font-size: 13px; color: var(--fg-2); }
+
+    /* ========= Source triad ========= */
+    .triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .source-card { background: var(--paper); border: 1px solid var(--border-1); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition: all var(--dur-base) var(--ease); }
+    .source-card:hover { border-color: rgba(240,159,56,0.4); transform: translateY(-2px); box-shadow: var(--shadow-lifted); }
+    .source-card .head { display: flex; align-items: center; gap: 12px; }
+    .source-card .gly { font-family: var(--font-mono); font-size: 30px; color: var(--amber); line-height: 1; }
+    .source-card h3 { font-family: var(--font-prop); font-weight: 700; font-size: 20px; margin: 0; color: var(--fg-warm); }
+    .source-card .vendor { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3); margin-left: auto; }
+    .source-card p { font-size: 14px; color: rgba(239,233,221,0.74); line-height: 1.6; margin: 0; }
+    .source-card ul { list-style: none; padding: 0; margin: auto 0 0; display: flex; flex-direction: column; gap: 8px; padding-top: 8px; border-top: 1px solid var(--border-1); }
+    .source-card li { font-family: var(--font-mono); font-size: 12.5px; color: rgba(239,233,221,0.74); display: flex; gap: 10px; align-items: baseline; }
+    .source-card li::before { content: "·"; color: var(--amber); font-weight: 700; }
+    .source-card .later { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-3); padding-top: 4px; }
+
+    /* ========= Example briefing ========= */
+    .example-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .example { background: var(--paper); border-radius: 14px; padding: 36px 36px 32px; box-shadow: var(--shadow-lifted); border: 1px solid var(--border-1); }
+    .example .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist-slate); margin-bottom: 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .example .meta .live { background: var(--amber); color: var(--ink); padding: 3px 10px; border-radius: 999px; text-transform: none; letter-spacing: 0.06em; font-weight: 700; }
+    .example .voice { font-family: var(--font-prop); font-style: italic; font-size: 22px; color: var(--amber); margin-bottom: 4px; }
+    .example h3 { font-family: var(--font-prop); font-weight: 700; font-size: 26px; color: var(--fg-warm); margin: 0 0 12px; letter-spacing: -0.015em; line-height: 1.2; }
+    .example hr { border: 0; height: 1px; background: var(--hairline-amber); margin: 16px 0; }
+    .example .nudge { display: grid; grid-template-columns: 28px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--border-1); }
+    .example .nudge:last-of-type { border-bottom: 0; padding-bottom: 8px; }
+    .example .nudge .ic { font-family: var(--font-mono); font-size: 18px; color: var(--amber); line-height: 1.2; }
+    .example .nudge .cap { font-family: var(--font-prop); font-style: italic; font-size: 14px; color: var(--amber); margin-bottom: 4px; }
+    .example .nudge .body { font-size: 15px; color: var(--fg-warm); line-height: 1.55; text-wrap: pretty; }
+    .example .nudge .body .m { font-family: var(--font-mono); font-size: 12.5px; background: rgba(239,233,221,0.06); padding: 1px 6px; border-radius: 3px; color: var(--fg-warm); }
+    .example .actions-row { display: flex; gap: 8px; padding-top: 14px; flex-wrap: wrap; border-top: 1px dashed var(--border-1); margin-top: 8px; }
+    .example .actions-row .chip { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; background: transparent; border: 1px solid var(--border-2); color: var(--fg-2); padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+    .example .actions-row .chip:hover { border-color: var(--amber); color: var(--amber); }
+    .example .actions-row .feedback { margin-left: auto; display: flex; gap: 4px; }
+    .example .actions-row .feedback .chip { padding: 6px 10px; }
+
+    .example-notes { padding-top: 8px; }
+    .example-notes h3 { font-family: var(--font-prop); font-weight: 700; font-size: 22px; margin: 0 0 14px; color: var(--fg-warm); letter-spacing: -0.01em; }
+    .example-notes .row { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border-1); }
+    .example-notes .row:last-child { border-bottom: 0; }
+    .example-notes .row .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); min-width: 110px; padding-top: 2px; flex-shrink: 0; }
+    .example-notes .row .v { font-size: 14px; color: rgba(239,233,221,0.78); line-height: 1.55; text-wrap: pretty; }
+    .example-notes .row .v .b { color: var(--fg-warm); font-weight: 700; }
+
+    /* ========= What it isn't ========= */
+    .isnt { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 36px; }
+    .isnt .row { padding: 18px 0; border-bottom: 1px solid var(--border-1); display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: baseline; }
+    .isnt .row .x { font-family: var(--font-mono); font-size: 18px; color: var(--red); line-height: 1; }
+    .isnt .row .label { font-family: var(--font-prop); font-weight: 700; font-size: 17px; color: var(--fg-warm); margin-bottom: 4px; letter-spacing: -0.005em; }
+    .isnt .row .desc { font-family: var(--font-prop); font-style: italic; font-size: 13.5px; color: var(--fg-2); line-height: 1.5; text-wrap: pretty; }
+    .isnt-footnote { font-family: var(--font-prop); font-style: italic; font-size: 18px; color: var(--amber); padding-top: 32px; max-width: 700px; line-height: 1.45; }
+    .isnt-footnote .quote { color: var(--fg-warm); font-weight: 700; font-style: normal; }
+
+    /* ========= How it works ========= */
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .how-step { display: flex; flex-direction: column; gap: 14px; padding: 4px 0 0; position: relative; }
+    .how-step::before { content: ""; position: absolute; top: -4px; left: 0; right: 0; height: 1px; background: var(--border-1); }
+    .how-step .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); padding-top: 12px; }
+    .how-step h3 { font-family: var(--font-prop); font-weight: 700; font-size: 19px; margin: 0; color: var(--fg-warm); letter-spacing: -0.01em; line-height: 1.25; text-wrap: pretty; }
+    .how-step p { font-size: 13.5px; color: rgba(239,233,221,0.7); line-height: 1.6; margin: 0; }
+
+    /* ========= Privacy & trust ========= */
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .trust { padding: 26px; border: 1px solid var(--border-1); border-radius: 14px; background: var(--paper); display: flex; flex-direction: column; gap: 12px; }
+    .trust .gly { font-family: var(--font-mono); font-size: 22px; color: var(--amber); line-height: 1; }
+    .trust h3 { font-family: var(--font-prop); font-weight: 700; font-size: 17px; margin: 0; color: var(--fg-warm); letter-spacing: -0.005em; }
+    .trust p { font-size: 13.5px; color: rgba(239,233,221,0.74); line-height: 1.6; margin: 0; }
+    .trust .tag { align-self: flex-start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); margin-top: auto; }
+
+    /* ========= Final CTA / form section ========= */
+    .cta { background: var(--warm); padding: 96px 0; border-top: 1px solid rgba(240,159,56,0.18); }
+    .cta .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+    .cta .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+    .cta h2 { font-family: var(--font-prop); font-weight: 700; font-size: 44px; letter-spacing: -0.022em; line-height: 1.08; margin: 0 0 18px; color: var(--fg-warm); text-wrap: pretty; }
+    .cta h2 .it { font-style: italic; font-weight: 400; color: var(--amber); }
+    .cta .lede { font-family: var(--font-prop); font-style: italic; font-size: 19px; color: rgba(239,233,221,0.82); margin: 0 0 24px; line-height: 1.5; }
+    .cta-form { background: var(--paper); border: 1px solid var(--border-1); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-subtle); }
+    .cta-form h3 { font-family: var(--font-prop); font-weight: 700; font-size: 20px; margin: 0; color: var(--fg-warm); letter-spacing: -0.005em; }
+    .cta-form .field { display: flex; flex-direction: column; gap: 6px; }
+    .cta-form .field label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); }
+    .cta-form .field input { background: var(--ink); border: 1px solid var(--border-1); border-radius: 4px; padding: 10px 12px; color: var(--fg-warm); font-family: var(--font-prop); font-size: 14px; outline: 0; transition: all var(--dur-fast) var(--ease); }
+    .cta-form .field input:focus { border-color: var(--amber); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .cta-form .field input::placeholder { color: var(--fg-mute); }
+    .cta-form .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cta-form .choice { display: flex; flex-direction: column; gap: 6px; }
+    .cta-form .choice .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .cta-form .choice .opt { background: var(--ink); border: 1px solid var(--border-1); border-radius: 4px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all var(--dur-fast) var(--ease); }
+    .cta-form .choice .opt:hover { border-color: var(--border-2); }
+    .cta-form .choice .opt.on { border-color: var(--amber); background: var(--accent-soft); }
+    .cta-form .choice .opt .t { font-family: var(--font-prop); font-weight: 700; font-size: 14px; color: var(--fg-warm); }
+    .cta-form .choice .opt .d { font-family: var(--font-prop); font-style: italic; font-size: 12px; color: var(--fg-2); }
+    .cta-form .submit { background: var(--amber); color: var(--ink); padding: 13px; border-radius: 999px; font-size: 14px; font-weight: 700; border: 0; cursor: pointer; font-family: var(--font-prop); transition: background var(--dur-fast) var(--ease); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .cta-form .submit:hover { background: var(--accent-hover); }
+    .cta-form .submit:disabled { background: var(--slate); color: var(--fg-3); cursor: not-allowed; }
+    .cta-form .footnote { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--fg-3); line-height: 1.5; }
+
+    /* ========= Footer ========= */
+    .mk-footer { padding: 56px 0 36px; border-top: 1px solid var(--border-1); }
+    .mk-footer .row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    .mk-footer h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mist-slate); margin: 0 0 12px; font-weight: 400; }
+    .mk-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .mk-footer ul li { font-size: 13px; color: rgba(239,233,221,0.66); }
+    .mk-footer ul li a { color: rgba(239,233,221,0.66); cursor: pointer; text-decoration: none; }
+    .mk-footer ul li a:hover { color: var(--amber); }
+    .mk-footer .signoff { margin-top: 40px; display: flex; gap: 18px; align-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--mist-slate); letter-spacing: 0.08em; padding-top: 24px; border-top: 1px solid var(--border-1); flex-wrap: wrap; }
+    .mk-footer .signoff .it { font-family: var(--font-prop); font-style: italic; font-size: 14px; color: rgba(239,233,221,0.72); letter-spacing: 0; }
+
+    /* ========= Responsive ========= */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 0 56px; }
+      .hero h1 { font-size: 44px; }
+      .section { padding: 72px 0; }
+      .section h2 { font-size: 32px; }
+      .triad, .trust-grid { grid-template-columns: 1fr; }
+      .audience { grid-template-columns: 1fr; }
+      .audience .col { border-right: 0; border-bottom: 1px solid var(--border-1); }
+      .audience .col:last-child { border-bottom: 0; }
+      .example-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .isnt { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .cta .grid { grid-template-columns: 1fr; gap: 40px; }
+      .cta h2 { font-size: 32px; }
+      .mk-footer .row { grid-template-columns: 1fr 1fr; }
+      .mk-nav .links a:not(.cta) { display: none; }
+    }
+    @media (max-width: 540px) {
+      .hero h1 { font-size: 36px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .cta-form .twocol, .cta-form .choice .options { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; border-radius: 14px; padding: 14px; gap: 12px; }
+      .form-row button { width: 100%; padding: 12px; justify-content: center; }
+    }
+
+    .gly { font-family: var(--font-mono); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel">
+/* global React, ReactDOM */
+const { useState, useEffect } = React;
+
+/* ===================== Helpers ===================== */
+const Glyph = ({ code, size = 16, color = "currentColor", style }) => (
+  <span className="gly" style={{ fontSize: size, color, lineHeight: 1, ...style }}
+        dangerouslySetInnerHTML={{ __html: "&#x" + code + ";" }}/>
+);
+
+const Mark = ({ size = 28, color = "#F09F38" }) => (
+  <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="24" r="3" fill={color}/>
+    <path d="M14 24a10 10 0 0 1 20 0" stroke={color} strokeWidth="2" strokeLinecap="round" fill="none"/>
+    <path d="M8 24a16 16 0 0 1 32 0" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.55" fill="none"/>
+  </svg>
+);
+
+const isValidEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
+
+/* ===================== Nav ===================== */
+const Nav = () => (
+  <div className="mk-nav">
+    <div className="container">
+      <div className="row">
+        <a className="brand" href="#top">
+          <Mark size={26}/>
+          <span className="word">Normata</span>
+          <span className="sub">SIGNALS</span>
+        </a>
+        <div className="links">
+          <a href="#what">What we watch</a>
+          <a href="#example">A briefing</a>
+          <a href="#how">How it works</a>
+          <a href="#trust">Trust</a>
+          <a href="#access" className="cta">Request a demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ===================== Hero inline form ===================== */
+const HeroForm = () => {
+  const [email, setEmail] = useState("");
+  const [intent, setIntent] = useState("demo");
+  const [state, setState] = useState("idle"); // idle | error | sent
+  const [error, setError] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!isValidEmail(email)) {
+      setError("That doesn't look like an email.");
+      setState("error");
+      return;
+    }
+    // Persist locally — the prototype doesn't have a backend.
+    try {
+      const prev = JSON.parse(localStorage.getItem("normata.signups") || "[]");
+      prev.push({ email: email.trim(), intent, ts: new Date().toISOString() });
+      localStorage.setItem("normata.signups", JSON.stringify(prev));
+    } catch (_) {}
+    setError("");
+    setState("sent");
+  };
+
+  if (state === "sent") {
+    return (
+      <div className="form-card">
+        <div className="form-success" role="status">
+          <span className="ic">✓</span>
+          <div>
+            <div className="cap">Worth a look.</div>
+            <div className="body">
+              We'll be in touch at <span className="m">{email.trim()}</span>{" "}
+              {intent === "demo" ? "to schedule a 20‑minute walkthrough." : "with a sample briefing and what we send next."}
+            </div>
+          </div>
+        </div>
+        <div className="form-meta">
+          <a onClick={() => { setState("idle"); setEmail(""); }}
+             style={{ cursor: "pointer", color: "var(--fg-2)" }}>
+            ← Send another
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form className="form-card" onSubmit={submit} noValidate>
+      <div className="form-row">
+        <input
+          type="email"
+          autoComplete="email"
+          placeholder="you@company.com"
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); if (state === "error") setState("idle"); }}
+          aria-label="Work email"
+        />
+        <button type="submit" disabled={!email}>
+          {intent === "demo" ? "Request a demo" : "Keep me posted"} →
+        </button>
+      </div>
+      {state === "error" && <div className="form-error">{error}</div>}
+      <div className="form-meta">
+        <label>
+          <input type="radio" name="intent" value="demo"
+                 checked={intent === "demo"} onChange={() => setIntent("demo")}/>
+          Request a demo
+        </label>
+        <label>
+          <input type="radio" name="intent" value="updates"
+                 checked={intent === "updates"} onChange={() => setIntent("updates")}/>
+          Just keep me posted
+        </label>
+      </div>
+    </form>
+  );
+};
+
+/* ===================== Hero ===================== */
+const Hero = () => (
+  <section id="top" className="container">
+    <div className="hero">
+      <div>
+        <div className="eyebrow"><span className="ridge"></span>For engineering managers</div>
+        <h1>
+          Signal,<br/><span className="it">not noise.</span>
+        </h1>
+        <p className="lede">
+          Normata watches your team's Slack, calendar, and GitHub — and quietly surfaces
+          what's worth your attention. No dashboards. No scoring. A short briefing,
+          on the days something happened.
+        </p>
+        <HeroForm/>
+        <div className="meta">
+          <span className="item"><span className="dot"></span>Read‑only on every source</span>
+          <span className="item">·</span>
+          <span className="item">Slack &amp; email delivery</span>
+          <span className="item">·</span>
+          <span className="item">EU‑resident data</span>
+        </div>
+      </div>
+      <HeroPreview/>
+    </div>
+  </section>
+);
+
+const HeroPreview = () => (
+  <div className="hero-preview">
+    <div className="label">
+      <span className="live"><span className="pulse"></span>Live · just now</span>
+      <span>delivered to #em‑maya · 08:30</span>
+    </div>
+    <div className="voice">Your Monday briefing.</div>
+    <h3>Three things worth attention before standup.</h3>
+    <hr/>
+    <div className="item">
+      <Glyph code="f407" size={15}/>
+      <div>
+        <div className="cap">Worth a look.</div>
+        <div>
+          <span className="m">PR&nbsp;#4218</span> (auth‑refresh) has been waiting on <span className="b">Jess</span> for 3 working days. She's out Thursday.
+        </div>
+      </div>
+    </div>
+    <div className="item">
+      <Glyph code="f198" size={15}/>
+      <div>
+        <div className="cap">Worth a check‑in.</div>
+        <div>
+          The <span className="m">#eng‑checkout</span> thread went quiet on Friday after a question from <span className="b">Priya</span>.
+        </div>
+      </div>
+    </div>
+    <div className="item">
+      <Glyph code="f073" size={15}/>
+      <div>
+        <div className="cap">Could be nothing.</div>
+        <div>
+          Your 1:1 with <span className="b">Maya</span> is at 4pm; no agenda for three weeks running.
+        </div>
+      </div>
+    </div>
+    <div className="actions">
+      <button className="chip">Acknowledge</button>
+      <button className="chip">Snooze 24h</button>
+      <button className="chip tick">👍</button>
+      <button className="chip">👎</button>
+    </div>
+    <div className="footnote">
+      <span>signals · 3 of 3 fired</span>
+      <span>precision · 0.84</span>
+    </div>
+  </div>
+);
+
+/* ===================== Audience ===================== */
+const Audience = () => (
+  <section className="section">
+    <div className="container">
+      <div className="eyebrow"><span className="ridge"></span>Who it's for</div>
+      <h2>Built for the people who run teams of <span className="it">five to fifteen.</span></h2>
+      <p className="lede">
+        High cognitive load, limited time, and a stack of tools that don't talk to each other.
+        If that sounds like your week, this is for you.
+      </p>
+      <div className="audience">
+        <div className="col">
+          <div className="role">Primary</div>
+          <div className="name">Engineering managers</div>
+          <div className="scope">5–15 engineers, multi‑project context.</div>
+        </div>
+        <div className="col">
+          <div className="role">Primary</div>
+          <div className="name">Tech leads &amp; team leads</div>
+          <div className="scope">Owning rituals, reviews, and on‑call.</div>
+        </div>
+        <div className="col">
+          <div className="role">Primary</div>
+          <div className="name">Engineering directors</div>
+          <div className="scope">Rollups across two or three teams.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== Source triad ===================== */
+const Sources = () => (
+  <section id="what" className="section ink-deep">
+    <div className="container">
+      <div className="eyebrow"><span className="ridge"></span>What we watch</div>
+      <h2>Three sources. <span className="it">Read‑only.</span></h2>
+      <p className="lede">
+        Signals depends on integration <em>categories</em>, not specific vendors. Connect a provider per category and the catalog opens up.
+      </p>
+      <div className="triad">
+        <div className="source-card">
+          <div className="head">
+            <Glyph code="f198" size={28}/>
+            <h3>Communication</h3>
+            <span className="vendor">Slack</span>
+          </div>
+          <p>Threads that went quiet after a question. Sudden silence from a teammate who's usually around. Channels heating up.</p>
+          <ul>
+            <li>slack_silence</li>
+            <li>unanswered question</li>
+            <li>cadence drift</li>
+            <li>later · Microsoft Teams</li>
+          </ul>
+        </div>
+        <div className="source-card">
+          <div className="head">
+            <Glyph code="f073" size={28}/>
+            <h3>Calendar</h3>
+            <span className="vendor">Google Calendar</span>
+          </div>
+          <p>1:1s with no agenda. Reports whose calendars are 80%+ booked. On‑call overlapping with personal time.</p>
+          <ul>
+            <li>cadence_gap</li>
+            <li>calendar_load</li>
+            <li>1:1 health</li>
+            <li>later · Outlook / M365</li>
+          </ul>
+        </div>
+        <div className="source-card">
+          <div className="head">
+            <Glyph code="f408" size={28}/>
+            <h3>Code</h3>
+            <span className="vendor">GitHub</span>
+          </div>
+          <p>PRs waiting on review for days. PRs that grew past your size threshold. Review churn loops. Stuck branches.</p>
+          <ul>
+            <li>pr_review_stall</li>
+            <li>pr_too_large</li>
+            <li>pr_review_churn · pr_stuck</li>
+            <li>later · GitLab, Bitbucket</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== Example ===================== */
+const Example = () => (
+  <section id="example" className="section warm">
+    <div className="container">
+      <div className="eyebrow"><span className="ridge"></span>An example signal</div>
+      <h2>Evidence, framing, <span className="it">your call.</span></h2>
+      <p className="lede">
+        Every signal arrives with the underlying evidence and a short, non‑prescriptive line.
+        Signals never acts on your behalf. You are the sole actor.
+      </p>
+      <div className="example-wrap">
+        <div className="example">
+          <div className="meta">
+            <span className="live">Monday · 08:30</span>
+            <span>delivered via Slack DM</span>
+            <span>·</span>
+            <span>pr_review_stall</span>
+          </div>
+          <div className="voice">Worth a look.</div>
+          <h3>PR&nbsp;#4218 has been waiting on review for 3 working days.</h3>
+          <hr/>
+          <div className="nudge">
+            <Glyph code="f0eb"/>
+            <div>
+              <div className="cap">Evidence</div>
+              <div className="body">
+                <span className="m">auth-refresh</span> · opened by <span className="m">@rohan</span>{" "}
+                · awaiting <span className="m">@jess</span> for 3 working days · 142 lines, 6 files.
+              </div>
+            </div>
+          </div>
+          <div className="nudge">
+            <Glyph code="f0a9"/>
+            <div>
+              <div className="cap">Suggestion</div>
+              <div className="body">
+                Jess is out Thursday — worth either nudging her today or reassigning before EOD.
+              </div>
+            </div>
+          </div>
+          <div className="actions-row">
+            <button className="chip">Acknowledge</button>
+            <button className="chip">Snooze 24h</button>
+            <button className="chip">Mute</button>
+            <div className="feedback">
+              <button className="chip">👍</button>
+              <button className="chip">👎</button>
+            </div>
+          </div>
+        </div>
+        <div className="example-notes">
+          <h3>What's in a signal.</h3>
+          <div className="row">
+            <div className="k">ID / category</div>
+            <div className="v"><span className="b">pr_review_stall</span> · Performance</div>
+          </div>
+          <div className="row">
+            <div className="k">Requires</div>
+            <div className="v">An active <span className="b">code</span> integration grant. Without it, this signal isn't offered.</div>
+          </div>
+          <div className="row">
+            <div className="k">Tunable</div>
+            <div className="v">Days to fire, repositories to watch, reviewers to include — set per signal, per manager.</div>
+          </div>
+          <div className="row">
+            <div className="k">Lifecycle</div>
+            <div className="v">Acknowledge · Snooze · Mute · Disable · 👍 / 👎. Three 👎 auto‑mutes the definition for you.</div>
+          </div>
+          <div className="row">
+            <div className="k">Refire</div>
+            <div className="v">Once acknowledged, it stays quiet unless <span className="b">new</span> evidence arrives.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== What it isn't ===================== */
+const Isnt = () => {
+  const items = [
+    ["A project management tool", "Keep Jira, Linear, or whatever you use."],
+    ["A 1:1 notes or agenda editor", "Notion, Google Docs, Coda — fine."],
+    ["A follow‑up or action tracker", "We don't keep your todos."],
+    ["A performance review or scoring system", "No rankings. No leaderboards. No engagement scores."],
+    ["A surveillance tool", "Managers see their team. No cross‑team or lateral access."],
+    ["A dashboard product", "If you ignore Signals for a week, nothing breaks."],
+  ];
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="eyebrow"><span className="ridge"></span>What it isn't</div>
+        <h2>The shape of Signals is <span className="it">defined by what it refuses to be.</span></h2>
+        <p className="lede">
+          A lot of what makes Signals useful is the long list of things it doesn't try to do.
+          Here's the explicit list.
+        </p>
+        <div className="isnt">
+          {items.map(([label, desc], i) => (
+            <div className="row" key={i}>
+              <span className="x">✕</span>
+              <div>
+                <div className="label">{label}</div>
+                <div className="desc">{desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="isnt-footnote">
+          <span className="quote">"If you ignore Signals for a week, nothing breaks.</span>{" "}
+          If you use it, you notice things you would have otherwise missed."
+        </p>
+      </div>
+    </section>
+  );
+};
+
+/* ===================== How it works ===================== */
+const How = () => (
+  <section id="how" className="section ink-deep">
+    <div className="container">
+      <div className="eyebrow"><span className="ridge"></span>How it works</div>
+      <h2>Four moving parts. <span className="it">None in the middle of your workflow.</span></h2>
+      <p className="lede">
+        Signals sits next to your tools, never between them. Composed every morning, delivered where you already read.
+      </p>
+      <div className="how-grid">
+        <div className="how-step">
+          <div className="num">01 · Ingest</div>
+          <h3>Per‑grant pull from Slack, Calendar, GitHub.</h3>
+          <p>Normalized into a single event schema. Smallest scopes that work. Disconnect at any time.</p>
+        </div>
+        <div className="how-step">
+          <div className="num">02 · Evaluate</div>
+          <h3>Versioned signal definitions, shadow → enabled.</h3>
+          <p>Thresholds hot‑reload per manager. A three‑tier kill switch guarantees we can stop firing fast.</p>
+        </div>
+        <div className="how-step">
+          <div className="num">03 · Frame</div>
+          <h3>BYO‑LLM writes one short, non‑prescriptive line.</h3>
+          <p>Bring your own model config. No LLM configured? Signals still flow — just evidence, no framing.</p>
+        </div>
+        <div className="how-step">
+          <div className="num">04 · Deliver</div>
+          <h3>Slack DM for real time, email for the digest.</h3>
+          <p>Acknowledge, snooze, mute, 👍/👎 inline. Respects DND and quiet hours. Quiet days stay quiet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== Trust ===================== */
+const Trust = () => (
+  <section id="trust" className="section">
+    <div className="container">
+      <div className="eyebrow"><span className="ridge"></span>Security &amp; privacy</div>
+      <h2>Org boundaries are <span className="it">security boundaries.</span></h2>
+      <p className="lede">
+        Signals is a pure signal platform. It does not store 1:1 notes, agendas, goals, or any manager‑authored content.
+        It holds only what is strictly required to evaluate active signals.
+      </p>
+      <div className="trust-grid">
+        <div className="trust">
+          <Glyph code="f0e3" size={22}/>
+          <h3>Four‑layer access control</h3>
+          <p>Permissions enforced at the ingestion, storage, query, and AI layers — not at UI filtering. Managers see only their direct reports and subtree.</p>
+          <span className="tag">Architecture §2</span>
+        </div>
+        <div className="trust">
+          <Glyph code="f084" size={22}/>
+          <h3>AI scope isolation</h3>
+          <p>Every AI call is scoped to a single <span className="gly" style={{color:"var(--amber)"}}>(org_id, manager_id)</span>. Raw PII never leaves the AI service. BYO‑LLM supported.</p>
+          <span className="tag">Architecture §5.4</span>
+        </div>
+        <div className="trust">
+          <Glyph code="f070" size={22}/>
+          <h3>No global ranking. Ever.</h3>
+          <p>Cross‑team "top performer" lists and "underperformer detection" are explicitly prohibited at the data model layer. The product can't compute them.</p>
+          <span className="tag">Hard constraint</span>
+        </div>
+        <div className="trust">
+          <Glyph code="f15c" size={22}/>
+          <h3>Append‑only audit log</h3>
+          <p>Every signal access, every admin action, every AI call is recorded. Available to your OrgOwner via API.</p>
+          <span className="tag">Always on</span>
+        </div>
+        <div className="trust">
+          <Glyph code="f06c" size={22}/>
+          <h3>Privacy‑aware framing</h3>
+          <p>Signal copy avoids definitive language. "Possible risk", "worth checking", "signal suggests" — never "underperforming" or "disengaged".</p>
+          <span className="tag">Tone constraint</span>
+        </div>
+        <div className="trust">
+          <Glyph code="f02b" size={22}/>
+          <h3>Data minimization</h3>
+          <p>We hold the smallest viable footprint: enough to evaluate active signals, nothing more. Reduces DSAR surface and works‑council scrutiny.</p>
+          <span className="tag">By design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== Final CTA + main form ===================== */
+const CTAForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [team, setTeam] = useState("");
+  const [intent, setIntent] = useState("demo");
+  const [state, setState] = useState("idle");
+  const [error, setError] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid work email.");
+      setState("error");
+      return;
+    }
+    try {
+      const prev = JSON.parse(localStorage.getItem("normata.signups") || "[]");
+      prev.push({ name, email, company, team, intent, ts: new Date().toISOString(), source: "cta" });
+      localStorage.setItem("normata.signups", JSON.stringify(prev));
+    } catch (_) {}
+    setError("");
+    setState("sent");
+  };
+
+  if (state === "sent") {
+    return (
+      <div className="cta-form" role="status">
+        <Glyph code="f00c" size={28}/>
+        <h3>Thanks — we'll be in touch.</h3>
+        <p style={{ fontFamily: "var(--font-prop)", fontStyle: "italic", color: "var(--fg-2)", fontSize: 15, lineHeight: 1.55, margin: 0 }}>
+          {intent === "demo"
+            ? <>We'll reach out at <span className="gly" style={{color:"var(--fg-warm)"}}>{email}</span> within two working days to schedule a 20‑minute walkthrough.</>
+            : <>You're on the list. Expect a sample briefing and an occasional product note — nothing more.</>}
+        </p>
+        <div className="footnote">
+          <a onClick={() => setState("idle")}
+             style={{ cursor: "pointer", color: "var(--amber)", borderBottom: "1px solid var(--amber)" }}>
+            ← Send another
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form className="cta-form" onSubmit={submit} noValidate>
+      <h3>Tell us where to send it.</h3>
+      <div className="choice">
+        <label>I'd like to</label>
+        <div className="options">
+          <div className={"opt" + (intent === "demo" ? " on" : "")} onClick={() => setIntent("demo")}>
+            <span className="t">Request a demo</span>
+            <span className="d">20 minutes. A real human.</span>
+          </div>
+          <div className={"opt" + (intent === "updates" ? " on" : "")} onClick={() => setIntent("updates")}>
+            <span className="t">Just learn more</span>
+            <span className="d">Sample briefing &amp; updates.</span>
+          </div>
+        </div>
+      </div>
+      <div className="twocol">
+        <div className="field">
+          <label>Name</label>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Maya Patel"/>
+        </div>
+        <div className="field">
+          <label>Work email *</label>
+          <input type="email" autoComplete="email" required value={email}
+                 onChange={(e) => { setEmail(e.target.value); if (state === "error") setState("idle"); }}
+                 placeholder="maya@company.com"/>
+        </div>
+      </div>
+      <div className="twocol">
+        <div className="field">
+          <label>Company</label>
+          <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Engineering"/>
+        </div>
+        <div className="field">
+          <label>Team size</label>
+          <input value={team} onChange={(e) => setTeam(e.target.value)} placeholder="8 engineers"/>
+        </div>
+      </div>
+      {state === "error" && <div className="form-error" style={{paddingLeft: 0}}>{error}</div>}
+      <button type="submit" className="submit" disabled={!email}>
+        {intent === "demo" ? "Request a demo" : "Keep me posted"} →
+      </button>
+      <p className="footnote">
+        We'll only use this to reach out about Signals. No tracking pixels, no list resale.
+        See our <a style={{color:"var(--amber)", borderBottom:"1px solid var(--hairline-amber)"}}>privacy notice</a>.
+      </p>
+    </form>
+  );
+};
+
+const FinalCTA = () => (
+  <section id="access" className="cta">
+    <div className="container">
+      <div className="grid">
+        <div>
+          <div className="eyebrow">Get in touch</div>
+          <h2>See a real briefing on <span className="it">your team's data.</span></h2>
+          <p className="lede">
+            A short walkthrough on a sandbox workspace, or a sample briefing in your inbox. Whichever you'd prefer.
+          </p>
+          <p style={{ fontFamily: "var(--font-prop)", fontSize: 15, color: "rgba(239,233,221,0.74)", maxWidth: 460, lineHeight: 1.6, marginBottom: 16 }}>
+            We do not run a marketing funnel. One email from a real person; you decide whether there's a second.
+            If Signals isn't the right shape for you, we'll say so.
+          </p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mist-slate)" }}>
+            Currently onboarding · M2 cohort · 2026
+          </p>
+        </div>
+        <CTAForm/>
+      </div>
+    </div>
+  </section>
+);
+
+/* ===================== Footer ===================== */
+const Footer = () => (
+  <footer className="mk-footer">
+    <div className="container">
+      <div className="row">
+        <div>
+          <a className="brand" style={{display:"flex", alignItems:"center", gap:10, textDecoration:"none", borderBottom:0}}>
+            <Mark size={26} color="#F09F38"/>
+            <span style={{fontFamily:"var(--font-prop)", fontStyle:"italic", fontWeight:700, fontSize:20, color:"var(--fg-warm)"}}>Normata</span>
+            <span style={{fontFamily:"var(--font-prop)", fontSize:10, letterSpacing:"0.22em", color:"var(--amber)", paddingTop:4, marginLeft:4}}>SIGNALS</span>
+          </a>
+          <p style={{ fontFamily: "var(--font-prop)", fontStyle: "italic", fontSize: 14, color: "rgba(239,233,221,0.72)", maxWidth: 360, marginTop: 14, lineHeight: 1.5 }}>
+            Quiet intelligence for engineering managers. We watch so you don't have to.
+          </p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#what">What we watch</a></li>
+            <li><a href="#example">A briefing</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a>Signal catalog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Trust</h4>
+          <ul>
+            <li><a href="#trust">Security overview</a></li>
+            <li><a>Privacy notice</a></li>
+            <li><a>Data handling</a></li>
+            <li><a>SOC 2 status</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a>About Normata</a></li>
+            <li><a>Writing</a></li>
+            <li><a href="#access">Contact</a></li>
+            <li><a>Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="signoff">
+        <span className="it">© Normata AB, 2026</span>
+        <span>·</span>
+        <span>v1.42.0</span>
+        <span>·</span>
+        <span>status · all green</span>
+        <span style={{marginLeft:"auto"}}>quiet intelligence, since 2025</span>
+      </div>
+    </div>
+  </footer>
+);
+
+/* ===================== Page ===================== */
+const Page = () => (
+  <>
+    <Nav/>
+    <Hero/>
+    <Audience/>
+    <Sources/>
+    <Example/>
+    <Isnt/>
+    <How/>
+    <Trust/>
+    <FinalCTA/>
+    <Footer/>
+  </>
+);
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Page/>);
+  </script>
+</body>
 </html>

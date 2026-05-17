@@ -1,0 +1,274 @@
+/* ============================================================
+   Normata Signals — Colors, Type & Foundations
+   Single brand typeface: Anonymice Pro Nerd Font.
+   Palette: "Chasers in Black" — dark canvas, amber signal,
+   red for the rare actually-urgent moment.
+   ============================================================ */
+
+/* ---------- Propo (proportional) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdPropo';
+  src: url('./fonts/AnonymiceProNerdFontPropo-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* ---------- Default (mono with icons) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerd';
+  src: url('./fonts/AnonymiceProNerdFont-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* ---------- Mono (strict mono) ---------- */
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'AnonymiceProNerdMono';
+  src: url('./fonts/AnonymiceProNerdFontMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+:root {
+  /* -------- Brand palette · Chasers in Black -------- */
+  --ink:           #1B1A1A;   /* primary canvas */
+  --ink-2:         #2A2828;   /* lifted surface, card on dark */
+  --slate:         #444141;   /* mid surface, body on cream */
+  --mist-slate:    #888383;   /* tertiary text, captions */
+  --amber:         #F09F38;   /* primary signal / CTA / brand accent */
+  --amber-deep:    #C77E1F;   /* amber pressed / focused */
+  --amber-dim:     #A87938;   /* secondary accent / quiet ribbons */
+  --red:           #BE2121;   /* the rare actually-urgent moment, sparingly */
+  --red-deep:      #921818;
+  --warm:          #2A2418;   /* the "warm card on dark" — replaces cream */
+  --paper:         #2A2828;   /* card surface on dark */
+  --paper-light:   #f3eee3;   /* light cream surface (synthesized for the rare light moment) */
+  --fg-warm:       #EFE9DD;   /* primary text on ink */
+  --white:         #ffffff;
+
+  /* -------- Back-compat aliases (so older selectors keep working) -------- */
+  --sage:        var(--amber);
+  --sage-deep:   var(--amber-deep);
+  --mint:        var(--amber-dim);
+  --cream:       var(--warm);
+  --mist:        var(--ink);
+
+  /* -------- Semantic surfaces · dark default -------- */
+  --bg:            var(--ink);            /* page */
+  --bg-paper:      var(--ink-2);          /* panel */
+  --bg-card:       var(--ink-2);          /* card */
+  --bg-highlight:  var(--warm);           /* the warm editorial highlight */
+  --bg-sunken:     #141313;               /* below page */
+  --bg-inverse:    var(--paper-light);    /* rare light surface (e.g. print) */
+
+  /* -------- Foreground · on dark -------- */
+  --fg-1:          var(--fg-warm);                       /* primary text */
+  --fg-2:          rgba(239, 233, 221, 0.68);            /* secondary */
+  --fg-3:          rgba(239, 233, 221, 0.44);            /* tertiary */
+  --fg-mute:       rgba(239, 233, 221, 0.26);
+  --fg-on-ink:     var(--fg-warm);
+  --fg-on-ink-2:   rgba(239, 233, 221, 0.68);
+  --fg-on-ink-3:   rgba(239, 233, 221, 0.44);
+  --fg-on-amber:   var(--ink);                           /* dark text on amber CTAs */
+  --fg-on-red:     var(--fg-warm);
+  --fg-on-cream:   var(--fg-warm);                       /* warm card → warm text */
+  --fg-on-light:   var(--ink);
+
+  /* -------- Borders & dividers -------- */
+  --border-1:      rgba(239, 233, 221, 0.08);
+  --border-2:      rgba(239, 233, 221, 0.16);
+  --border-on-ink: rgba(239, 233, 221, 0.08);
+  --hairline-amber: rgba(240, 159, 56, 0.42);
+  --hairline-sage: var(--hairline-amber); /* alias */
+
+  /* -------- Accents -------- */
+  --accent:           var(--amber);
+  --accent-hover:     #F7B45C;
+  --accent-pressed:   var(--amber-deep);
+  --accent-soft:      rgba(240, 159, 56, 0.14);
+  --info:             var(--amber-dim);
+  --info-soft:        rgba(168, 121, 56, 0.18);
+  --danger:           var(--red);
+  --danger-soft:      rgba(190, 33, 33, 0.18);
+
+  /* -------- Shadows -------- */
+  --shadow-subtle:    0 1px 2px rgba(0,0,0,0.32);
+  --shadow-lifted:    0 12px 28px -10px rgba(0,0,0,0.55),
+                      0 2px 4px -2px rgba(0,0,0,0.35);
+  --shadow-focus:     0 0 0 2px var(--bg), 0 0 0 4px var(--amber);
+
+  /* -------- Radii -------- */
+  --radius-xs:        4px;
+  --radius-md:        10px;
+  --radius-pill:      999px;
+
+  /* -------- Spacing (4px base) -------- */
+  --s-1:    4px;   --s-2:    8px;   --s-3:    12px;  --s-4:    16px;
+  --s-6:    24px;  --s-8:    32px;  --s-12:   48px;  --s-16:   64px;
+  --s-24:   96px;  --s-32:  128px;
+
+  /* -------- Type families -------- */
+  --font-prop:    'AnonymiceProNerdPropo', 'AnonymousPro', ui-monospace, monospace;
+  --font-mono:    'AnonymiceProNerd', 'AnonymousPro', ui-monospace, monospace;
+  --font-strict:  'AnonymiceProNerdMono', 'AnonymousPro', ui-monospace, monospace;
+  --font-display: var(--font-prop);
+  --font-sans:    var(--font-prop);
+  --font-serif:   var(--font-prop);
+
+  /* -------- Type sizes -------- */
+  --t-display:     64px;
+  --t-h1:          44px;
+  --t-h2:          30px;
+  --t-h3:          22px;
+  --t-h4:          17px;
+  --t-body:        15px;
+  --t-body-sm:     13px;
+  --t-caption:     12px;
+  --t-overline:    11px;
+
+  /* -------- Motion -------- */
+  --ease:        cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:    150ms;
+  --dur-base:    250ms;
+  --dur-slow:    400ms;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-prop);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--amber); color: var(--ink); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-prop);
+  color: var(--fg-1);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: var(--t-h1); line-height: 1.08; letter-spacing: -0.02em; }
+h2 { font-size: var(--t-h2); line-height: 1.18; letter-spacing: -0.015em; }
+h3 { font-size: var(--t-h3); line-height: 1.3;  font-weight: 700; }
+h4 { font-size: var(--t-h4); line-height: 1.35; font-weight: 700; }
+
+p  { margin: 0; font-size: var(--t-body); line-height: 1.55; color: var(--fg-1); }
+
+.italic-voice, .voice {
+  font-family: var(--font-prop);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--amber);
+}
+
+.lede {
+  font-family: var(--font-prop);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--fg-2);
+  font-weight: 400;
+}
+
+small, .caption {
+  font-size: var(--t-caption);
+  color: var(--fg-3);
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+
+.overline {
+  font-family: var(--font-mono);
+  font-size: var(--t-overline);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fg-3);
+}
+
+code, kbd, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+.tabular {
+  font-family: var(--font-strict);
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--fg-1);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+a:hover { border-bottom-color: var(--amber); }
+
+button { font-family: inherit; }
+
+.surface-ink   { background: var(--ink);   color: var(--fg-on-ink); }
+.surface-paper { background: var(--paper); color: var(--fg-1); }
+.surface-mist  { background: var(--ink);   color: var(--fg-1); }
+.surface-cream { background: var(--warm);  color: var(--fg-on-cream); }
+
+.hairline {
+  height: 1px;
+  background: var(--hairline-amber);
+  border: 0;
+  margin: var(--s-6) 0;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  padding: var(--s-6);
+}
