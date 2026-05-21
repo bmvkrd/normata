@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.normata.com/sitemap.xml
+
+Sitemap: https://normata.com/sitemap.xml

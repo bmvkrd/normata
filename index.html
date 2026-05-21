@@ -3,8 +3,79 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
+  <meta name="theme-color" content="#1B1A1A"/>
+
   <title>Normata Signals — quiet intelligence for engineering managers</title>
-  <link rel="icon" href="assets/favicon.svg"/>
+  <meta name="description" content="Normata Signals connects to the tools your engineering team already uses — collaboration, calendar, and code — and uses AI to surface short, evidence-backed briefings when someone on your team needs your attention."/>
+  <link rel="canonical" href="https://normata.com/"/>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Normata Signals"/>
+  <meta property="og:title" content="Normata Signals — quiet intelligence for engineering managers"/>
+  <meta property="og:description" content="Know when someone on your team needs you. Normata Signals fuses collaboration, calendar, and code into short, evidence-backed briefings for engineering managers."/>
+  <meta property="og:url" content="https://normata.com/"/>
+  <meta property="og:image" content="https://normata.com/assets/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Normata Signals — quiet intelligence for engineering managers"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Normata Signals — quiet intelligence for engineering managers"/>
+  <meta name="twitter:description" content="Know when someone on your team needs you. Evidence-backed briefings for engineering managers."/>
+  <meta name="twitter:image" content="https://normata.com/assets/og-image.png"/>
+  <meta name="twitter:image:alt" content="Normata Signals — quiet intelligence for engineering managers"/>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://normata.com/#organization",
+        "name": "Normata",
+        "url": "https://normata.com/",
+        "logo": "https://normata.com/assets/logo-mark.svg",
+        "description": "Normata builds quiet intelligence tools for engineering managers."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://normata.com/#website",
+        "url": "https://normata.com/",
+        "name": "Normata Signals",
+        "publisher": { "@id": "https://normata.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Normata Signals",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://normata.com/",
+        "description": "Normata Signals integrates with the tools engineering teams already use — collaboration, calendar, and code — and uses AI to surface short, evidence-backed briefings about each direct report when something is worth a manager's attention.",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Engineering managers, tech leads, and engineering directors"
+        },
+        "publisher": { "@id": "https://normata.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
 /* ============================================================
    Normata Signals — Colors, Type & Foundations
@@ -332,6 +403,8 @@ button { font-family: inherit; }
     .form-success .cap { font-family: var(--font-prop); font-style: italic; font-size: 15px; color: var(--amber); margin-bottom: 4px; }
     .form-success .body { font-size: 14px; color: var(--fg-1); line-height: 1.55; }
     .form-success .body .m { font-family: var(--font-mono); background: rgba(239,233,221,0.06); padding: 1px 6px; border-radius: 3px; color: var(--fg-warm); font-size: 12.5px; }
+    .hidden { display: none !important; }
+    .gotcha { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
 
     /* ========= Hero preview (briefing mock) ========= */
     .hero-preview { background: var(--paper); border-radius: 14px; padding: 26px 28px 22px; box-shadow: var(--shadow-lifted); border: 1px solid var(--border-1); display: flex; flex-direction: column; gap: 14px; position: relative; }
@@ -411,388 +484,381 @@ button { font-family: inherit; }
   </style>
 </head>
 <body>
-  <div id="root"></div>
-
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-  <script type="text/babel">
-/* global React, ReactDOM */
-const { useState } = React;
-
-// Paste your Formspree endpoint here after signing up at formspree.io
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqejkkyy";
-
-/* ===================== Helpers ===================== */
-const Glyph = ({ code, size = 16, color = "currentColor", style }) => (
-  <span className="gly" style={{ fontSize: size, color, lineHeight: 1, ...style }}
-        dangerouslySetInnerHTML={{ __html: "&#x" + code + ";" }}/>
-);
-
-const Mark = ({ size = 28, color = "#F09F38" }) => (
-  <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
-    <circle cx="24" cy="24" r="3" fill={color}/>
-    <path d="M14 24a10 10 0 0 1 20 0" stroke={color} strokeWidth="2" strokeLinecap="round" fill="none"/>
-    <path d="M8 24a16 16 0 0 1 32 0" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.55" fill="none"/>
-  </svg>
-);
-
-const isValidEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
-
-/* ===================== Nav ===================== */
-const Nav = () => (
-  <div className="mk-nav">
-    <div className="container">
-      <div className="row">
-        <a className="brand" href="#top">
-          <Mark size={26}/>
-          <span className="word">Normata</span>
-          <span className="sub">SIGNALS</span>
+  <!-- ========= Nav ========= -->
+  <header class="mk-nav">
+    <div class="container">
+      <div class="row">
+        <a class="brand" href="#top" aria-label="Normata Signals home">
+          <svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="3" fill="#F09F38"/>
+            <path d="M14 24a10 10 0 0 1 20 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M8 24a16 16 0 0 1 32 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" opacity="0.55" fill="none"/>
+          </svg>
+          <span class="word">Normata</span>
+          <span class="sub">SIGNALS</span>
         </a>
-        <div className="links">
-          <a href="#top" className="cta">Request a demo</a>
-        </div>
+        <nav class="links" aria-label="Primary">
+          <a href="#top" class="cta">Request a demo</a>
+        </nav>
       </div>
     </div>
-  </div>
-);
+  </header>
 
-/* ===================== Hero form ===================== */
-const HeroForm = () => {
-  const [email, setEmail]   = useState("");
-  const [intent, setIntent] = useState("demo");
-  const [state, setState]   = useState("idle"); // idle | sending | sent | error
-  const [error, setError]   = useState("");
+  <main>
+    <!-- ========= Hero ========= -->
+    <section id="top" class="container">
+      <div class="hero">
+        <div>
+          <div class="eyebrow"><span class="ridge"></span>For engineering managers</div>
+          <h1>
+            Know when someone on your team<br/><span class="it">needs you.</span>
+          </h1>
+          <p class="lede">
+            Normata Signals integrates with the tools your team already uses — collaboration,
+            calendar, and code — and uses AI to fuse what it sees around each of your direct
+            reports. When something is worth your attention, you get a short, evidence‑backed
+            briefing.
+          </p>
 
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!isValidEmail(email)) {
-      setError("That doesn't look like an email.");
-      setState("error");
-      return;
-    }
-    setState("sending");
+          <!-- Form (progressive enhancement: plain HTML POST that JS upgrades to inline success) -->
+          <form id="signup" class="form-card" action="https://formspree.io/f/xqejkkyy" method="POST" novalidate>
+            <div class="form-row">
+              <input
+                id="signup-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@company.com"
+                aria-label="Work email"
+              />
+              <button id="signup-submit" type="submit">
+                <span data-label-demo>Request a demo →</span>
+                <span data-label-updates class="hidden">Keep me posted →</span>
+                <span data-label-sending class="hidden">Sending…</span>
+              </button>
+            </div>
+            <div id="signup-error" class="form-error hidden" role="alert"></div>
+            <div class="form-meta">
+              <label>
+                <input type="radio" name="intent" value="demo" checked/>
+                Request a demo
+              </label>
+              <label>
+                <input type="radio" name="intent" value="updates"/>
+                Just keep me posted
+              </label>
+            </div>
+            <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+            <input type="hidden" name="_subject" value="Normata demo request"/>
+          </form>
 
-    // Always save locally as a backup
-    try {
-      const prev = JSON.parse(localStorage.getItem("normata.signups") || "[]");
-      prev.push({ email: email.trim(), intent, ts: new Date().toISOString() });
-      localStorage.setItem("normata.signups", JSON.stringify(prev));
-    } catch (_) {}
-
-    // Submit to Formspree when endpoint is configured
-    if (!FORMSPREE_ENDPOINT.includes("REPLACE_ME")) {
-      try {
-        const fd = new FormData();
-        fd.append("email",    email.trim());
-        fd.append("intent",   intent);
-        fd.append("_subject", "Normata demo request");
-        fd.append("_gotcha",  ""); // honeypot — must stay empty
-        await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: fd,
-        });
-      } catch (_) {
-        // Network failure — localStorage already captured it
-      }
-    }
-
-    setError("");
-    setState("sent");
-  };
-
-  if (state === "sent") {
-    return (
-      <div className="form-card">
-        <div className="form-success" role="status">
-          <span className="ic">✓</span>
-          <div>
-            <div className="cap">Worth a look.</div>
-            <div className="body">
-              We'll be in touch at <span className="m">{email.trim()}</span>{" "}
-              {intent === "demo"
-                ? "to schedule a short walkthrough."
-                : "with a sample briefing and occasional product notes."}
+          <div id="signup-success" class="form-card hidden">
+            <div class="form-success" role="status">
+              <span class="ic">✓</span>
+              <div>
+                <div class="cap">Worth a look.</div>
+                <div class="body">
+                  We'll be in touch at <span class="m" id="signup-success-email"></span>
+                  <span id="signup-success-suffix">to schedule a short walkthrough.</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-meta">
+              <a id="signup-reset" href="#" style="cursor:pointer;color:var(--fg-2);">← Send another</a>
             </div>
           </div>
         </div>
-        <div className="form-meta">
-          <a onClick={() => { setState("idle"); setEmail(""); }}
-             style={{ cursor: "pointer", color: "var(--fg-2)" }}>
-            ← Send another
-          </a>
-        </div>
-      </div>
-    );
-  }
 
-  return (
-    <form className="form-card" onSubmit={submit} noValidate>
-      <div className="form-row">
-        <input
-          type="email"
-          name="email"
-          autoComplete="email"
-          placeholder="you@company.com"
-          value={email}
-          onChange={(e) => { setEmail(e.target.value); if (state === "error") setState("idle"); }}
-          aria-label="Work email"
-        />
-        <button type="submit" disabled={!email || state === "sending"}>
-          {state === "sending" ? "Sending…" : (intent === "demo" ? "Request a demo" : "Keep me posted")} →
-        </button>
+        <!-- Hero preview (briefing mock) -->
+        <aside class="hero-preview" aria-label="Sample briefing">
+          <div class="label">
+            <span class="live"><span class="pulse"></span>Live · just now</span>
+          </div>
+          <h3>Alice — worth a check‑in this week.</h3>
+          <hr/>
+          <div class="item">
+            <span class="gly" style="font-size:15px;color:var(--amber);" aria-hidden="true">&#xf198;</span>
+            <div>
+              <div class="cap">Needs attention.</div>
+              <div>
+                <span class="b">Alice</span> posted in <span class="m">#eng‑platform</span> three days ago: "still waiting on infra access to unblock this." No response yet.
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="gly" style="font-size:15px;color:var(--amber);" aria-hidden="true">&#xf408;</span>
+            <div>
+              <div class="cap">Worth a look.</div>
+              <div>
+                <span class="m">PR&nbsp;#4218</span> and <span class="m">PR&nbsp;#4221</span> both waiting on review for 3+ working days.
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="gly" style="font-size:15px;color:var(--amber);" aria-hidden="true">&#xf073;</span>
+            <div>
+              <div class="cap">Worth a check‑in.</div>
+              <div>
+                1:1 with <span class="b">Alice</span> has run without an agenda for three weeks running.
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="chip">Acknowledge</button>
+            <button type="button" class="chip">Snooze 24h</button>
+          </div>
+        </aside>
       </div>
-      {state === "error" && <div className="form-error">{error}</div>}
-      <div className="form-meta">
-        <label>
-          <input type="radio" name="intent" value="demo"
-                 checked={intent === "demo"} onChange={() => setIntent("demo")}/>
-          Request a demo
-        </label>
-        <label>
-          <input type="radio" name="intent" value="updates"
-                 checked={intent === "updates"} onChange={() => setIntent("updates")}/>
-          Just keep me posted
-        </label>
-      </div>
-    </form>
-  );
-};
+    </section>
 
-/* ===================== Hero preview (person-centric briefing mock) ===================== */
-const HeroPreview = () => (
-  <div className="hero-preview">
-    <div className="label">
-      <span className="live"><span className="pulse"></span>Live · just now</span>
-    </div>
-    <h3>Alice — worth a check‑in this week.</h3>
-    <hr/>
-    <div className="item">
-      <Glyph code="f198" size={15}/>
-      <div>
-        <div className="cap">Needs attention.</div>
-        <div>
-          <span className="b">Alice</span> posted in <span className="m">#eng‑platform</span> three days ago: "still waiting on infra access to unblock this." No response yet.
-        </div>
-      </div>
-    </div>
-    <div className="item">
-      <Glyph code="f408" size={15}/>
-      <div>
-        <div className="cap">Worth a look.</div>
-        <div>
-          <span className="m">PR&nbsp;#4218</span> and <span className="m">PR&nbsp;#4221</span> both waiting on review for 3+ working days.
-        </div>
-      </div>
-    </div>
-    <div className="item">
-      <Glyph code="f073" size={15}/>
-      <div>
-        <div className="cap">Worth a check‑in.</div>
-        <div>
-          1:1 with <span className="b">Alice</span> has run without an agenda for three weeks running.
-        </div>
-      </div>
-    </div>
-    <div className="actions">
-      <button className="chip">Acknowledge</button>
-      <button className="chip">Snooze 24h</button>
-    </div>
-  </div>
-);
-
-/* ===================== Hero ===================== */
-const Hero = () => (
-  <section id="top" className="container">
-    <div className="hero">
-      <div>
-        <div className="eyebrow"><span className="ridge"></span>For engineering managers</div>
-        <h1>
-          Know when someone on your team<br/><span className="it">needs you.</span>
-        </h1>
-        <p className="lede">
-          Normata Signals integrates with the tools your team already uses — collaboration,
-          calendar, and code — and uses AI to fuse what it sees around each of your direct
-          reports. When something is worth your attention, you get a short, evidence‑backed
-          briefing.
+    <!-- ========= Audience ========= -->
+    <section class="section" aria-labelledby="audience-heading">
+      <div class="container">
+        <div class="eyebrow"><span class="ridge"></span>Who it's for</div>
+        <h2 id="audience-heading">Built for the people who run teams of <span class="it">five to fifteen.</span></h2>
+        <p class="lede">
+          High cognitive load, limited time, and a stack of tools that don't talk to each other.
         </p>
-        <HeroForm/>
-      </div>
-      <HeroPreview/>
-    </div>
-  </section>
-);
-
-/* ===================== Audience ===================== */
-const Audience = () => (
-  <section className="section">
-    <div className="container">
-      <div className="eyebrow"><span className="ridge"></span>Who it's for</div>
-      <h2>Built for the people who run teams of <span className="it">five to fifteen.</span></h2>
-      <p className="lede">
-        High cognitive load, limited time, and a stack of tools that don't talk to each other.
-      </p>
-      <div className="audience">
-        <div className="col">
-          <div className="role">Primary</div>
-          <div className="name">Engineering managers</div>
-          <div className="scope">Managing 5–15 engineers across one or two teams. Signals replaces the manual pattern-checking that slips between 1:1s.</div>
-        </div>
-        <div className="col">
-          <div className="role">Primary</div>
-          <div className="name">Tech leads &amp; team leads</div>
-          <div className="scope">Owning rituals, code review health, and on‑call. Signals surfaces what's falling through without adding another tool to check.</div>
-        </div>
-        <div className="col">
-          <div className="role">Primary</div>
-          <div className="name">Engineering directors</div>
-          <div className="scope">Rollups across two or three teams. Each manager's briefing stays theirs — directors see their own direct reports only.</div>
+        <div class="audience">
+          <div class="col">
+            <div class="role">Primary</div>
+            <div class="name">Engineering managers</div>
+            <div class="scope">Managing 5–15 engineers across one or two teams. Signals replaces the manual pattern-checking that slips between 1:1s.</div>
+          </div>
+          <div class="col">
+            <div class="role">Primary</div>
+            <div class="name">Tech leads &amp; team leads</div>
+            <div class="scope">Owning rituals, code review health, and on‑call. Signals surfaces what's falling through without adding another tool to check.</div>
+          </div>
+          <div class="col">
+            <div class="role">Primary</div>
+            <div class="name">Engineering directors</div>
+            <div class="scope">Rollups across two or three teams. Each manager's briefing stays theirs — directors see their own direct reports only.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
 
-/* ===================== Integrations ===================== */
-const Sources = () => (
-  <section className="section ink-deep">
-    <div className="container">
-      <div className="eyebrow"><span className="ridge"></span>Integrations</div>
-      <h2>Core categories. <span className="it">Read‑only.</span></h2>
-      <p className="lede">
-        Connect your day‑to‑day tools and pick the signals you care about from the catalog.
-      </p>
-      <div className="triad">
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f198" size={28}/>
-            <h3>Collaboration tools</h3>
-          </div>
-          <p>
-            Public channel activity, thread health, and communication patterns — surfaced when
-            something shifts from a person's normal baseline.
-          </p>
-        </div>
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f073" size={28}/>
-            <h3>Calendars</h3>
-          </div>
-          <p>
-            1:1 cadence, meeting load, and recurring ritual health — tracked passively
-            from the manager's own calendar grant.
-          </p>
-        </div>
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f408" size={28}/>
-            <h3>Code tools</h3>
-          </div>
-          <p>
-            PR review health, cycle time, after‑hours merge patterns, and code review
-            quality.
-          </p>
+    <!-- ========= Integrations ========= -->
+    <section class="section ink-deep" aria-labelledby="integrations-heading">
+      <div class="container">
+        <div class="eyebrow"><span class="ridge"></span>Integrations</div>
+        <h2 id="integrations-heading">Core categories. <span class="it">Read‑only.</span></h2>
+        <p class="lede">
+          Connect your day‑to‑day tools and pick the signals you care about from the catalog.
+        </p>
+        <div class="triad">
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf198;</span>
+              <h3>Collaboration tools</h3>
+            </div>
+            <p>
+              Public channel activity, thread health, and communication patterns — surfaced when
+              something shifts from a person's normal baseline.
+            </p>
+          </article>
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf073;</span>
+              <h3>Calendars</h3>
+            </div>
+            <p>
+              1:1 cadence, meeting load, and recurring ritual health — tracked passively
+              from the manager's own calendar grant.
+            </p>
+          </article>
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf408;</span>
+              <h3>Code tools</h3>
+            </div>
+            <p>
+              PR review health, cycle time, after‑hours merge patterns, and code review
+              quality.
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
 
-/* ===================== AI ===================== */
-const AI = () => (
-  <section className="section warm">
-    <div className="container">
-      <div className="eyebrow"><span className="ridge"></span>AI‑powered</div>
-      <h2>Built on language, <span className="it">not just rules.</span></h2>
-      <p className="lede">
-        AI is what fuses Signals into one clear picture of one person.
-      </p>
-      <div className="triad">
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f0d0" size={28}/>
-            <h3>Cross‑source fusion</h3>
-          </div>
-          <p>
-            A quiet week, two stalled PRs, and a missed 1:1 each look unremarkable in
-            isolation. AI correlates them across categories into a single briefing about
-            one person — something no SQL rule can produce.
-          </p>
+    <!-- ========= AI ========= -->
+    <section class="section warm" aria-labelledby="ai-heading">
+      <div class="container">
+        <div class="eyebrow"><span class="ridge"></span>AI‑powered</div>
+        <h2 id="ai-heading">Built on language, <span class="it">not just rules.</span></h2>
+        <p class="lede">
+          AI is what fuses Signals into one clear picture of one person.
+        </p>
+        <div class="triad">
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf0d0;</span>
+              <h3>Cross‑source fusion</h3>
+            </div>
+            <p>
+              A quiet week, two stalled PRs, and a missed 1:1 each look unremarkable in
+              isolation. AI correlates them across categories into a single briefing about
+              one person — something no SQL rule can produce.
+            </p>
+          </article>
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf002;</span>
+              <h3>Substance over surface</h3>
+            </div>
+            <p>
+              Language models score things rules can't: whether a PR review was substantive
+              or rubber‑stamped, whether a Slack message is a real blocker or background chatter,
+              whether a PR description explains why.
+            </p>
+          </article>
+          <article class="source-card">
+            <div class="head">
+              <span class="gly" style="font-size:28px;color:var(--amber);" aria-hidden="true">&#xf0e5;</span>
+              <h3>Manager‑shaped framing</h3>
+            </div>
+            <p>
+              Every briefing is written for you. Evidence is specific, framing is
+              non‑prescriptive, and your judgment is always the last step. Signals never
+              acts on your behalf.
+            </p>
+          </article>
         </div>
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f002" size={28}/>
-            <h3>Substance over surface</h3>
-          </div>
-          <p>
-            Language models score things rules can't: whether a PR review was substantive
-            or rubber‑stamped, whether a Slack message is a real blocker or background chatter,
-            whether a PR description explains why.
-          </p>
-        </div>
-        <div className="source-card">
-          <div className="head">
-            <Glyph code="f0e5" size={28}/>
-            <h3>Manager‑shaped framing</h3>
-          </div>
-          <p>
-            Every briefing is written for you. Evidence is specific, framing is
-            non‑prescriptive, and your judgment is always the last step. Signals never
-            acts on your behalf.
-          </p>
-        </div>
+        <p class="ai-trust-note">
+          AI processing runs inside your org's scope boundary — data is redacted before it
+          reaches any model, never used to rank individuals or compare across teams.
+          Bring your own model config, or skip AI framing entirely.
+        </p>
       </div>
-      <p className="ai-trust-note">
-        AI processing runs inside your org's scope boundary — data is redacted before it
-        reaches any model, never used to rank individuals or compare across teams.
-        Bring your own model config, or skip AI framing entirely.
-      </p>
-    </div>
-  </section>
-);
+    </section>
+  </main>
 
-
-/* ===================== Footer ===================== */
-const Footer = () => (
-  <footer className="mk-footer">
-    <div className="container">
-      <div className="row">
+  <!-- ========= Footer ========= -->
+  <footer class="mk-footer">
+    <div class="container">
+      <div class="row">
         <div>
-          <a href="#top" style={{display:"flex", alignItems:"center", gap:10, textDecoration:"none", borderBottom:0}}>
-            <Mark size={26} color="#F09F38"/>
-            <span style={{fontFamily:"var(--font-prop)", fontStyle:"italic", fontWeight:700, fontSize:20, color:"var(--fg-warm)"}}>Normata</span>
-            <span style={{fontFamily:"var(--font-prop)", fontSize:10, letterSpacing:"0.22em", color:"var(--amber)", paddingTop:4, marginLeft:4}}>SIGNALS</span>
+          <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;border-bottom:0;" aria-label="Normata Signals home">
+            <svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="3" fill="#F09F38"/>
+              <path d="M14 24a10 10 0 0 1 20 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M8 24a16 16 0 0 1 32 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" opacity="0.55" fill="none"/>
+            </svg>
+            <span style="font-family:var(--font-prop);font-style:italic;font-weight:700;font-size:20px;color:var(--fg-warm);">Normata</span>
+            <span style="font-family:var(--font-prop);font-size:10px;letter-spacing:0.22em;color:var(--amber);padding-top:4px;margin-left:4px;">SIGNALS</span>
           </a>
-          <p style={{ fontFamily: "var(--font-prop)", fontStyle: "italic", fontSize: 14, color: "rgba(239,233,221,0.72)", maxWidth: 360, marginTop: 14, lineHeight: 1.5 }}>
+          <p style="font-family:var(--font-prop);font-style:italic;font-size:14px;color:rgba(239,233,221,0.72);max-width:360px;margin-top:14px;line-height:1.5;">
             Quiet intelligence for engineering managers.
           </p>
         </div>
       </div>
-      <div className="signoff">
-        <span className="it">© Normata, 2026</span>
+      <div class="signoff">
+        <span class="it">© Normata, 2026</span>
         <span>·</span>
         <span>Read‑only access · EU data residency · No global ranking</span>
-        <span style={{marginLeft:"auto"}}>quiet intelligence, since 2025</span>
+        <span style="margin-left:auto;">quiet intelligence, since 2025</span>
       </div>
     </div>
   </footer>
-);
 
-/* ===================== Page ===================== */
-const Page = () => (
-  <>
-    <Nav/>
-    <Hero/>
-    <Audience/>
-    <Sources/>
-    <AI/>
-    <Footer/>
-  </>
-);
+  <script>
+    (function () {
+      var form        = document.getElementById('signup');
+      var emailInput  = document.getElementById('signup-email');
+      var errorBox    = document.getElementById('signup-error');
+      var submitBtn   = document.getElementById('signup-submit');
+      var successBox  = document.getElementById('signup-success');
+      var successMail = document.getElementById('signup-success-email');
+      var successSfx  = document.getElementById('signup-success-suffix');
+      var resetLink   = document.getElementById('signup-reset');
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Page/>);
+      var labelDemo    = form.querySelector('[data-label-demo]');
+      var labelUpdates = form.querySelector('[data-label-updates]');
+      var labelSending = form.querySelector('[data-label-sending]');
+
+      function intent() {
+        var checked = form.querySelector('input[name="intent"]:checked');
+        return checked ? checked.value : 'demo';
+      }
+
+      function syncButtonLabel() {
+        var i = intent();
+        labelDemo.classList.toggle('hidden',    i !== 'demo');
+        labelUpdates.classList.toggle('hidden', i !== 'updates');
+        labelSending.classList.add('hidden');
+      }
+
+      form.querySelectorAll('input[name="intent"]').forEach(function (r) {
+        r.addEventListener('change', syncButtonLabel);
+      });
+      syncButtonLabel();
+
+      function isValidEmail(s) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((s || '').trim());
+      }
+
+      function showError(msg) {
+        errorBox.textContent = msg;
+        errorBox.classList.remove('hidden');
+      }
+      function clearError() {
+        errorBox.textContent = '';
+        errorBox.classList.add('hidden');
+      }
+
+      emailInput.addEventListener('input', clearError);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (emailInput.value || '').trim();
+        if (!isValidEmail(email)) {
+          showError("That doesn't look like an email.");
+          return;
+        }
+
+        // Backup to localStorage
+        try {
+          var prev = JSON.parse(localStorage.getItem('normata.signups') || '[]');
+          prev.push({ email: email, intent: intent(), ts: new Date().toISOString() });
+          localStorage.setItem('normata.signups', JSON.stringify(prev));
+        } catch (_) {}
+
+        // Sending state
+        labelDemo.classList.add('hidden');
+        labelUpdates.classList.add('hidden');
+        labelSending.classList.remove('hidden');
+        submitBtn.disabled = true;
+
+        var fd = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd
+        }).catch(function () {
+          // Swallow — localStorage already captured the lead
+        }).then(function () {
+          successMail.textContent = email;
+          successSfx.textContent = intent() === 'demo'
+            ? 'to schedule a short walkthrough.'
+            : 'with a sample briefing and occasional product notes.';
+          form.classList.add('hidden');
+          successBox.classList.remove('hidden');
+        });
+      });
+
+      resetLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        emailInput.value = '';
+        submitBtn.disabled = false;
+        clearError();
+        syncButtonLabel();
+        successBox.classList.add('hidden');
+        form.classList.remove('hidden');
+        emailInput.focus();
+      });
+    })();
   </script>
 </body>
 </html>

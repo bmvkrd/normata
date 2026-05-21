@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B1A1A"/>
+      <stop offset="100%" stop-color="#2A2418"/>
+    </linearGradient>
+    <linearGradient id="amber-ridge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F09F38" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#F09F38" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#F09F38" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle ridge -->
+  <rect x="0" y="0" width="1200" height="1" fill="url(#amber-ridge)"/>
+  <rect x="0" y="629" width="1200" height="1" fill="url(#amber-ridge)"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(96,96)">
+    <circle cx="24" cy="24" r="3" fill="#F09F38"/>
+    <path d="M14 24a10 10 0 0 1 20 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M8 24a16 16 0 0 1 32 0" stroke="#F09F38" stroke-width="2" stroke-linecap="round" opacity="0.55" fill="none"/>
+  </g>
+  <text x="148" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="32" fill="#EFE9DD">Normata</text>
+  <text x="290" y="128" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="4" fill="#F09F38">SIGNALS</text>
+
+  <!-- Eyebrow -->
+  <rect x="96" y="232" width="40" height="2" fill="#F09F38" opacity="0.55"/>
+  <text x="148" y="238" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="3" fill="#F09F38">FOR ENGINEERING MANAGERS</text>
+
+  <!-- Headline -->
+  <text x="96" y="320" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="68" fill="#EFE9DD">Know when someone on your team</text>
+  <text x="96" y="400" font-family="Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" font-size="68" fill="#F09F38">needs you.</text>
+
+  <!-- Lede -->
+  <text x="96" y="478" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="24" fill="#EFE9DD" opacity="0.74">Quiet intelligence that fuses collaboration, calendar,</text>
+  <text x="96" y="512" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="24" fill="#EFE9DD" opacity="0.74">and code into short, evidence-backed briefings.</text>
+
+  <!-- Footer chip -->
+  <text x="96" y="582" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="3" fill="#888383">NORMATA.COM</text>
+</svg>
